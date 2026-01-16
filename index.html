@@ -1,116 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arav Poultry Farms - Fresh Healthy Poultry Products</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+header { background: linear-gradient(135deg, #d4a574 0%, #c4956f 100%); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; }
+.logo::before { content: '🍗 '; }
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+.nav-links a:hover { opacity: 0.8; }
+.btn-cta { background: white; color: #d4a574; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; }
+.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.hero { background: linear-gradient(135deg, #d4a574 0%, #c4956f 100%); color: white; text-align: center; padding: 6rem 2rem; animation: fadeInDown 1s ease-out; }
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+.btn-primary { background: white; color: #d4a574; padding: 0.8rem 2rem; border: none; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.btn-primary:hover { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); animation: glow 1.5s ease-in-out infinite; }
+section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+section h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #333; text-align: center; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.product-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 2rem; transition: all 0.3s; cursor: pointer; animation: fadeInUp 0.6s ease-out backwards; }
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.25s; }
+.product-card:nth-child(3) { animation-delay: 0.4s; }
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+.product-icon { font-size: 3rem; margin-bottom: 1rem; }
+.product-card h3 { margin: 1rem 0; color: #d4a574; }
+.product-card p { color: #666; margin-bottom: 1rem; }
+.price { font-weight: bold; color: #d4a574; font-size: 1.2rem; }
+.about { background: #f9f9f9; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.feature { padding: 1.5rem; background: white; border-radius: 10px; text-align: center; animation: fadeInUp 0.6s ease-out backwards; }
+.feature:nth-child(1) { animation-delay: 0.1s; }
+.feature:nth-child(2) { animation-delay: 0.25s; }
+.feature:nth-child(3) { animation-delay: 0.4s; }
+.feature:nth-child(4) { animation-delay: 0.55s; }
+.feature h4 { color: #d4a574; margin: 1rem 0; }
+.testimonials { background: #f0e6d8; }
+.testimonial-card { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 4px solid #d4a574; }
+.testimonial-card p { margin-bottom: 1rem; font-style: italic; }
+.testimonial-card strong { color: #d4a574; }
+footer { background: #333; color: white; padding: 3rem 2rem 1rem; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+.footer-section h4 { margin-bottom: 1rem; color: #d4a574; }
+.footer-section p, .footer-section a { color: #ccc; text-decoration: none; margin-bottom: 0.5rem; display: block; }
+.footer-section a:hover { color: #d4a574; }
+.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #555; color: #999; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes glow { 0%, 100% { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); } 50% { box-shadow: 0 15px 50px rgba(212, 165, 116, 0.8); } }
+@keyframes shimmer { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
+button { transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.btn-primary:hover, .btn-cta:hover { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); animation: glow 1.5s ease-in-out infinite; }
+.features-list > div { animation: fadeInLeft 0.6s ease-out backwards; }
+.features-list > div:nth-child(1) { animation-delay: 0.1s; }
+.features-list > div:nth-child(2) { animation-delay: 0.25s; }
+.features-list > div:nth-child(3) { animation-delay: 0.4s; }
+.features-list > div:nth-child(4) { animation-delay: 0.55s; }
+@media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { gap: 1rem; flex-wrap: wrap; } }
+</style>
+</head>
+<body>
 <header>
-  <nav class="navbar">
-    <div class="logo">🐔 Arav Poultry Farms</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#products">Our Products</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#" class="btn-cta">Order Now</a>
-  </nav>
+<div class="navbar">
+<a href="#home" class="logo">Arav Poultry Farms</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#products">Our Products</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a href="#products" class="btn-cta">Order Now</a>
+</div>
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Fresh, Healthy Poultry Products</h1>
-    <p>Premium quality eggs and poultry from Arav Poultry Farms - Farm Fresh Delivered to Your Door</p>
-    <button class="btn-primary">Order Online</button>
-  </div>
+<div class="hero-content">
+<h1>Fresh, Healthy Poultry Products</h1>
+<p>Premium quality eggs and poultry from Arav Poultry Farms - Farm Fresh Delivered to Your Door</p>
+<button class="btn-primary">Order Online</button>
+</div>
 </section>
 
-<section class="products" id="products">
-  <h2>Our Premium Products</h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <h3>🔺 Fresh Eggs</h3>
-      <p>Organic, farm-fresh eggs packed with nutrients. Free from antibiotics and hormones.</p>
-      <span class="price">From Rs. 40/dozen</span>
-    </div>
-    <div class="product-card">
-      <h3>🐔 Broiler Chicken</h3>
-      <p>High-quality broiler chicken meat - tender, succulent, and perfectly fresh.</p>
-      <span class="price">From Rs. 180/kg</span>
-    </div>
-    <div class="product-card">
-      <h3>🐙 Layer Chicken</h3>
-      <p>Nutritious layer chicken ideal for stewing and traditional cooking preparations.</p>
-      <span class="price">From Rs. 150/kg</span>
-    </div>
-  </div>
+<section id="products">
+<h2>Our Premium Products</h2>
+<div class="products-grid">
+<div class="product-card">
+<div class="product-icon">🔺</div>
+<h3>Fresh Eggs</h3>
+<p>Organic, farm-fresh eggs packed with nutrients. Free from antibiotics and hormones.</p>
+<div class="price">From Rs. 40/dozen</div>
+</div>
+<div class="product-card">
+<div class="product-icon">🐔</div>
+<h3>Broiler Chicken</h3>
+<p>High-quality broiler chicken meat - tender, succulent, and perfectly fresh.</p>
+<div class="price">From Rs. 180/kg</div>
+</div>
+<div class="product-card">
+<div class="product-icon">🐙</div>
+<h3>Layer Chicken</h3>
+<p>Nutritious layer chicken ideal for stewing and traditional cooking preparations.</p>
+<div class="price">From Rs. 150/kg</div>
+</div>
+</div>
 </section>
 
 <section class="about" id="about">
-  <div class="about-content">
-    <h2>About Arav Poultry Farms</h2>
-    <p>Established with a mission to provide the highest quality poultry products, Arav Poultry Farms has been serving the community for over 15 years. We maintain strict hygiene standards and use modern farming practices to ensure every product meets your expectations.</p>
-    <div class="features-list">
-      <div class="feature-item">
-        <h4>✓ 100% Natural Feed</h4>
-        <p>No artificial additives or chemicals</p>
-      </div>
-      <div class="feature-item">
-        <h4>✓ Hygiene Standards</h4>
-        <p>Strict quality control & sanitation</p>
-      </div>
-      <div class="feature-item">
-        <h4>✓ Daily Fresh</h4>
-        <p>Fresh products delivered daily</p>
-      </div>
-      <div class="feature-item">
-        <h4>✓ Best Prices</h4>
-        <p>Direct from farm - no middlemen</p>
-      </div>
-    </div>
-  </div>
+<h2>About Arav Poultry Farms</h2>
+<p>Established with a mission to provide the highest quality poultry products, Arav Poultry Farms has been serving the community for over 15 years. We maintain strict hygiene standards and use modern farming practices to ensure every product meets your expectations.</p>
+<div class="features">
+<div class="feature">
+<h4>✓ 100% Natural Feed</h4>
+<p>No artificial additives or chemicals</p>
+</div>
+<div class="feature">
+<h4>✓ Hygiene Standards</h4>
+<p>Strict quality control & sanitation</p>
+</div>
+<div class="feature">
+<h4>✓ Daily Fresh</h4>
+<p>Fresh products delivered daily</p>
+</div>
+<div class="feature">
+<h4>✓ Best Prices</h4>
+<p>Direct from farm - no middlemen</p>
+</div>
+</div>
 </section>
 
 <section class="testimonials">
-  <h2>What Our Customers Say</h2>
-  <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <p>"Best quality eggs I've ever bought! Always fresh and the delivery is super reliable."</p>
-      <span class="customer-name">- Rajesh Kumar, Chennai</span>
-    </div>
-    <div class="testimonial-card">
-      <p>"Love the freshness and taste. Prices are very reasonable compared to market."</p>
-      <span class="customer-name">- Priya Sharma, Bangalore</span>
-    </div>
-    <div class="testimonial-card">
-      <p>"Highly recommended! Great customer service and consistent quality."</p>
-      <span class="customer-name">- Amit Patel, Hyderabad</span>
-    </div>
-  </div>
+<h2>What Our Customers Say</h2>
+<div class="testimonial-card">
+<p>"Best quality eggs I've ever bought! Always fresh and the delivery is super reliable."</p>
+<strong>- Rajesh Kumar, Chennai</strong>
+</div>
+<div class="testimonial-card">
+<p>"Love the freshness and taste. Prices are very reasonable compared to market."</p>
+<strong>- Priya Sharma, Bangalore</strong>
+</div>
+<div class="testimonial-card">
+<p>"Highly recommended! Great customer service and consistent quality."</p>
+<strong>- Amit Patel, Hyderabad</strong>
+</div>
 </section>
 
 <section class="cta">
-  <h2>Ready to Experience Fresh Quality?</h2>
-  <p>Order your fresh poultry products today and taste the difference!</p>
-  <button class="btn-primary">Order Now</button>
+<h2>Ready to Experience Fresh Quality?</h2>
+<p>Order your fresh poultry products today and taste the difference!</p>
+<button class="btn-primary">Order Now</button>
 </section>
 
 <footer id="contact">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h4>Arav Poultry Farms</h4>
-      <p>Premium Quality Poultry Since 2010</p>
-    </div>
-    <div class="footer-section">
-      <h4>Contact Us</h4>
-      <p>Phone: +91-98765-43210</p>
-      <p>Email: info@aravpoultry.com</p>
-    </div>
-    <div class="footer-section">
-      <h4>Delivery Areas</h4>
-      <p>Chennai, Bangalore, Hyderabad & Nearby</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Arav Poultry Farms. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
+<div class="footer-content">
+<div class="footer-section">
+<h4>Arav Poultry Farms</h4>
+<p>Premium Quality Poultry Since 2010</p>
+</div>
+<div class="footer-section">
+<h4>Contact Us</h4>
+<p>Phone: +91-98765-43210</p>
+<p>Email: info@aravpoultry.com</p>
+</div>
+<div class="footer-section">
+<h4>Delivery Areas</h4>
+<p>Chennai, Bangalore, Hyderabad & Nearby</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Arav Poultry Farms. All rights reserved.</p>
+<div class="footer-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Contact</a>
+</div>
+</div>
 </footer>
+
+<script>
+const productCards = document.querySelectorAll('.product-card');
+productCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xPercent = (x / rect.width - 0.5) * 20;
+    const yPercent = (y / rect.height - 0.5) * 20;
+    card.style.transform = `perspective(1000px) rotateY(${xPercent}deg) rotateX(${-yPercent}deg) scale(1.05)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
+  });
+});
+console.log('✨ Animation effects loaded successfully!');
+</script>
+</body>
+</html>
