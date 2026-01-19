@@ -1,382 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arav Poultry Farms - Fresh Healthy Poultry Products</title>
- <meta name="google-site-verification" content="JqbiBqMfJkjpdxSl7n7d6h2c5sVz_kK9tYp8w0Q8Rxg=">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
-header { background: linear-gradient(135deg, #d4a574 0%, #c4956f 100%); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; flex-wrap: wrap; gap: 1rem; }
-.logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; }
-/* .logo::before { content: '🍗 '; } */.nav-links { list-style: none; display: flex; gap: 2rem; flex-wrap: wrap; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; white-space: nowrap; }
-.nav-links a:hover { opacity: 0.8; }
-.btn-cta { background: white; color: #d4a574; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
-.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.hero { background: linear-gradient(135deg, #d4a574 0%, #c4956f 100%); color: white; text-align: center; padding: 6rem 2rem; animation: fadeInDown 1s ease-out; }
-.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-.btn-primary { background: white; color: #d4a574; padding: 0.8rem 2rem; border: none; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); font-size: 1rem; }
-.btn-primary:hover { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); animation: glow 1.5s ease-in-out infinite; }
-section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-section h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #333; text-align: center; }
-.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-.product-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 2rem; transition: all 0.3s; cursor: pointer; animation: fadeInUp 0.6s ease-out backwards; }
-.product-card:nth-child(1) { animation-delay: 0.1s; }
-.product-card:nth-child(2) { animation-delay: 0.25s; }
-.product-card:nth-child(3) { animation-delay: 0.4s; }
-.product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-.product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem; }
-.product-card h3 { margin: 1rem 0; color: #d4a574; font-size: 1.5rem; }
-.product-card p { color: #666; margin-bottom: 1rem; font-size: 1rem; }
-.price { font-weight: bold; color: #d4a574; font-size: 1.3rem; }
-.about { background: #f9f9f9; }
-.about p { text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8; }
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.feature { padding: 1.5rem; background: white; border-radius: 10px; text-align: center; animation: fadeInUp 0.6s ease-out backwards; }
-.feature:nth-child(1) { animation-delay: 0.1s; }
-.feature:nth-child(2) { animation-delay: 0.25s; }
-.feature:nth-child(3) { animation-delay: 0.4s; }
-.feature:nth-child(4) { animation-delay: 0.55s; }
-.feature h4 { color: #d4a574; margin: 1rem 0; font-size: 1.1rem; }
-.testimonials { background: #f0e6d8; }
-.testimonial-card { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 4px solid #d4a574; }
-.testimonial-card p { margin-bottom: 1rem; font-style: italic; font-size: 1rem; }
-.testimonial-card strong { color: #d4a574; }
-footer { background: #333; color: white; padding: 3rem 2rem 1rem; }
-.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-.footer-section h4 { margin-bottom: 1rem; color: #d4a574; font-size: 1.1rem; }
-.footer-section p, .footer-section a { color: #ccc; text-decoration: none; margin-bottom: 0.5rem; display: block; font-size: 0.95rem; }
-.footer-section a:hover { color: #d4a574; }
-.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #555; color: #999; }
-.footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap; }
-.footer-links a { color: #ccc; text-decoration: none; }
-.cta { text-align: center; background: #fff; }
-.cta h2 { margin-bottom: 1rem; }
-.cta p { max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; }
-@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes glow { 0%, 100% { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); } 50% { box-shadow: 0 15px 50px rgba(212, 165, 116, 0.8); } }
-@keyframes shimmer { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
-button { transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.btn-primary:hover, .btn-cta:hover { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); animation: glow 1.5s ease-in-out infinite; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arav Poultry Farms | Fresh BV 300 Products</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #f4b400;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --dark: #333;
+        }
 
-/* Tablet Responsive */
-@media (max-width: 992px) {
-  .hero h1 { font-size: 2.5rem; }
-  .hero p { font-size: 1.1rem; }
-  section h2 { font-size: 2rem; }
-  .navbar { padding: 0 1.5rem; }
-  .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-}
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--gray); color: var(--dark); }
+        
+        /* Navigation */
+        nav { background: var(--primary); color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1000&q=80'); 
+                height: 350px; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .nav-links { gap: 1rem; justify-content: center; }
-  section { padding: 3rem 1.5rem; }
-  section h2 { font-size: 1.8rem; }
-}
+        /* Products Section */
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: 0.3s; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .card-img { height: 220px; background-size: cover; background-position: center; }
+        .card-content { padding: 1.5rem; }
+        .price { color: var(--primary); font-size: 1.4rem; font-weight: bold; margin: 10px 0; }
+        
+        .btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; font-size: 1rem; transition: 0.2s; }
+        .btn:hover { background: #1e3d1a; }
 
-@media (max-width: 600px) {
-  * { margin: 0; padding: 0; }
-  body { font-size: 14px; line-height: 1.5; }
-  header { padding: 0.75rem 0; }
-  .navbar { flex-direction: column; align-items: center; padding: 0 1rem; gap: 0.75rem; }
-  .logo { font-size: 1.4rem; }
-  .nav-links { gap: 0.75rem; font-size: 0.9rem; justify-content: center; }
-  .btn-cta { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
-  .hero { padding: 3rem 1.2rem; }
-  .hero h1 { font-size: 1.75rem; margin-bottom: 0.75rem; }
-  .hero p { font-size: 0.95rem; margin-bottom: 1.5rem; }
-  .btn-primary { padding: 0.7rem 1.5rem; font-size: 0.95rem; }
-  section { padding: 2.5rem 1.2rem; }
-  section h2 { font-size: 1.6rem; margin-bottom: 1.5rem; }
-  .products-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .product-card { padding: 1.5rem; }
-  .product-card img { height: 180px; }
-  .product-card h3 { font-size: 1.3rem; }
-  .product-card p { font-size: 0.95rem; }
-  .price { font-size: 1.1rem; }
-  .about p { font-size: 1rem; }
-  .features { grid-template-columns: 1fr; gap: 1rem; }
-  .feature { padding: 1.2rem; }
-  .feature h4 { font-size: 1rem; }
-  .footer-content { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-  .footer-section h4 { font-size: 1rem; }
-  .testimonial-card { padding: 1.5rem; margin-bottom: 1rem; }
-  .testimonial-card p { font-size: 0.95rem; }
-  footer { padding: 2rem 1rem 1rem; }
-  .footer-links { flex-direction: column; gap: 0.75rem; }
-}
-</style>
- 
+        /* Checkout Overlay */
+        #checkout-page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 2000; overflow-y: auto; padding: 20px; box-sizing: border-box; }
+        .checkout-box { max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fff; }
+        
+        label { display: block; margin-top: 15px; font-weight: 600; color: #555; }
+        input, textarea, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        
+        .whatsapp-btn { background-color: #25D366; margin-top: 25px; border: none; font-size: 1.1rem; }
+        .whatsapp-btn:hover { background-color: #128C7E; }
+        .back-btn { background: none; color: #666; text-decoration: none; border: none; cursor: pointer; margin-bottom: 20px; display: inline-block; font-size: 0.9rem; }
+        
+        .order-summary-card { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid var(--secondary); }
+    </style>
 </head>
 <body>
-<header>
-<div class="navbar">
-<a href="#home" class="logo"><img src="Logo (2).png" alt="Arav Poultry Farms Logo" style="height: 50px; vertical-align: middle; margin-right: 10px;">Arav Poultry Farms</a><ul class="nav-links">
-<li><a href="#home">Home</a></li>
-<li><a href="#products">Our Products</a></li>
-<li><a href="#about">About Us</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<a href="#products" class="btn-cta">Order Now</a>
- <div class="cart-icon" onclick="toggleCart()">🛒 <span class="cart-badge" id="cartCount">0</span></div>
-</div>
-</header>
 
-<section class="hero" id="home">
-<div class="hero-content">
-<h1>Fresh, Healthy Poultry Products</h1>
-<p>Premium quality eggs and poultry from Arav Poultry Farms - Farm Fresh Delivered to Your Door</p>
-<button class="btn-primary">Order Online</button>
-</div>
-</section>
+<div id="main-site">
+    <nav>
+        <div class="logo">ARAV POULTRY FARMS</div>
+    </nav>
 
-<section id="products">
-<h2>Our Premium Products</h2>
-<div class="products-grid">
-<div class="product-card">
-<img src='Eggs.png' alt='Fresh Eggs'><h3>Fresh Eggs</h3>
-<p>Organic, farm-fresh eggs packed with nutrients. Free from antibiotics and hormones.</p>
-<div class="price">From Rs. 70/dozen</div>
- <button class="btn-add-cart" onclick="addToCart('Fresh Eggs', 70, 'dozen')">Add to Cart</button>
+    <div class="hero">
+        <h1>Fresh BV 300 Breed Eggs</h1>
+        <p>Premium Quality • Farm Fresh • Direct Delivery</p>
+    </div>
 
-</div>
-<div class="product-card">
-<img src='Broiler.png' alt='Broiler Chicken'><h3>Broiler Chicken</h3>
-<p>High-quality broiler chicken meat - tender, succulent, and perfectly fresh.</p>
-<div class="price">From Rs. 180/kg</div>
-</div>
-<div class="product-card">
-<img src='Layer.png' alt='Layer Chicken'><h3>Layer Chicken</h3>
-<p>Nutritious layer chicken ideal for stewing and traditional cooking preparations.</p>
-<div class="price">From Rs. 150/kg</div>
-</div>
-</div>
-</section>
+    <div class="container">
+        <h2 style="text-align:center; color: var(--primary); margin-bottom: 2rem;">Our Fresh Products</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1582722872445-44c5bc7e3c52?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>White Eggs (BV 300)</h3>
+                    <p>Rich in protein, sourced from high-yield BV 300 layers.</p>
+                    <div class="price">₹140 <small>/ Dozen</small></div>
+                    <button class="btn" onclick="openCheckout('BV 300 White Eggs', 140, 'Dozen')">Order Now</button>
+                </div>
+            </div>
 
-<section class="about" id="about">
-<h2>About Arav Poultry Farms</h2>
-<p>Established with a mission to provide the highest quality poultry products, Arav Poultry Farms has been serving the community for over 15 years. We maintain strict hygiene standards and use modern farming practices to ensure every product meets your expectations.</p>
-<div class="features">
-<div class="feature">
-<h4>✓ 100% Natural Feed</h4>
-<p>No artificial additives or chemicals</p>
-</div>
-<div class="feature">
-<h4>✓ Hygiene Standards</h4>
-<p>Strict quality control & sanitation</p>
-</div>
-<div class="feature">
-<h4>✓ Daily Fresh</h4>
-<p>Fresh products delivered daily</p>
-</div>
-<div class="feature">
-<h4>✓ Best Prices</h4>
-<p>Direct from farm - no middlemen</p>
-</div>
-</div>
-</section>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1604351810947-814da4746366?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>Live Layer (BV 300)</h3>
+                    <p>Healthy birds grown with strict hygiene standards.</p>
+                    <div class="price">₹250 <small>/ KG</small></div>
+                    <button class="btn" onclick="openCheckout('BV 300 Layer Chicken', 250, 'KG')">Order Now</button>
+                </div>
+            </div>
 
-<section class="testimonials">
-<h2>What Our Customers Say</h2>
-<div class="testimonial-card">
-<p>"Best quality eggs I've ever bought! Always fresh and the delivery is super reliable."</p>
-<strong>- Rajesh Kumar, Chennai</strong>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>Fresh Broiler Chicken</h3>
+                    <p>Farm processed daily. Tender and clean meat.</p>
+                    <div class="price">₹210 <small>/ KG</small></div>
+                    <button class="btn" onclick="openCheckout('Fresh Broiler Chicken', 210, 'KG')">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="testimonial-card">
-<p>"Love the freshness and taste. Prices are very reasonable compared to market."</p>
-<strong>- Priya Sharma, Bangalore</strong>
-</div>
-<div class="testimonial-card">
-<p>"Highly recommended! Great customer service and consistent quality."</p>
-<strong>- Amit Patel, Hyderabad</strong>
-</div>
-</section>
 
-<section class="cta">
-<h2>Ready to Experience Fresh Quality?</h2>
-<p>Order your fresh poultry products today and taste the difference!</p>
-<button class="btn-primary">Order Now</button>
-</section>
+<div id="checkout-page">
+    <div class="checkout-box">
+        <button class="back-btn" onclick="closeCheckout()">← Back to Products</button>
+        <h2 style="margin-top:0;">Complete Your Order</h2>
+        
+        <div class="order-summary-card">
+            <p style="margin:0;"><strong>Product:</strong> <span id="item-name"></span></p>
+            <p style="margin:5px 0 0 0;"><strong>Rate:</strong> ₹<span id="item-price"></span> per <span id="unit-type"></span></p>
+        </div>
+        
+        <form id="orderForm">
+            <label for="qty">Quantity</label>
+            <input type="number" id="qty" value="1" min="1" oninput="calculateTotal()" required>
 
-<footer id="contact">
-<div class="footer-content">
-<div class="footer-section">
-<h4>Arav Poultry Farms</h4>
-<p>Premium Quality Poultry Since 2005</p>
+            <p style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">Estimated Total: ₹<span id="total-val">0</span></p>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <h3>Delivery Details</h3>
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            
+            <label>WhatsApp Number</label>
+            <input type="tel" id="phone" placeholder="Your contact number" required>
+            
+            <label>Delivery Address</label>
+            <textarea id="address" rows="3" placeholder="Street, Area, Landmark" required></textarea>
+            
+            <button type="submit" class="btn whatsapp-btn">Send Order to WhatsApp</button>
+        </form>
+    </div>
 </div>
-<div class="footer-section">
-<h4>Contact Us</h4>
-<p>Phone: +91-99026-03084</p>
-<p>Email: preetampawar137@gmail.com</p>
-</div>
-<div class="footer-section">
-<h4>Delivery Areas</h4>
-<p>Chennai, Bangalore, Hyderabad & Nearby</p>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 Arav Poultry Farms. All rights reserved.</p>
-<div class="footer-links">
-<a href="#">Privacy Policy</a>
-<a href="#">Terms of Service</a>
-<a href="#">Contact</a>
-</div>
-</div>
-</footer>
 
 <script>
-const productCards = document.querySelectorAll('.product-card');
-productCards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const xPercent = (x / rect.width - 0.5) * 20;
-    const yPercent = (y / rect.height - 0.5) * 20;
-    card.style.transform = `perspective(1000px) rotateY(${xPercent}deg) rotateX(${-yPercent}deg) scale(1.05)`;
-  });
-  
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
-  });
-});
-console.log('✨ Animation effects loaded successfully!');
-</script>
- <!-- Shopping Cart Overlay and Modal -->
-<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-<div class="cart-modal" id="cartModal">
-  <div class="cart-header">
-    <h3>Shopping Cart</h3>
-    <button class="close-cart" onclick="toggleCart()">×</button>
-  </div>
-  <div class="cart-items" id="cartItems">
-    <div class="empty-cart">Your cart is empty</div>
-  </div>
-  <div class="cart-footer" id="cartFooter" style="display: none;">
-    <div class="cart-total">Total: Rs. <span id="cartTotal">0</span></div>
-    <button class="checkout-btn" onclick="checkout()">Place Order via WhatsApp</button>
-  </div>
-</div>
-<script>
-let cart = [];
+    let selectedItem = "";
+    let selectedPrice = 0;
+    let selectedUnit = "";
 
-function toggleCart() {
-  const modal = document.getElementById('cartModal');
-  const overlay = document.getElementById('cartOverlay');
-  const isActive = modal.classList.contains('active');
-  
-  if (isActive) {
-    modal.classList.remove('active');
-    overlay.style.display = 'none';
-  } else {
-    modal.classList.add('active');
-    overlay.style.display = 'block';
-  }
-}
+    function openCheckout(name, price, unit) {
+        selectedItem = name;
+        selectedPrice = price;
+        selectedUnit = unit;
+        
+        document.getElementById('item-name').innerText = name;
+        document.getElementById('item-price').innerText = price;
+        document.getElementById('unit-type').innerText = unit;
+        document.getElementById('qty').value = 1;
+        
+        calculateTotal();
+        
+        document.getElementById('main-site').style.display = 'none';
+        document.getElementById('checkout-page').style.display = 'block';
+        window.scrollTo(0,0);
+    }
 
-function addToCart(name, price, unit) {
-  const existing = cart.find(item => item.name === name);
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({name, price, unit, quantity: 1});
-  }
-  updateCart();
-  
-  // Show confirmation
-  const cartIcon = document.querySelector('.cart-icon');
-  cartIcon.style.animation = 'bounce 0.5s';
-  setTimeout(() => cartIcon.style.animation = '', 500);
-}
+    function closeCheckout() {
+        document.getElementById('main-site').style.display = 'block';
+        document.getElementById('checkout-page').style.display = 'none';
+    }
 
-function updateCart() {
-  const cartItems = document.getElementById('cartItems');
-  const cartCount = document.getElementById('cartCount');
-  const cartTotal = document.getElementById('cartTotal');
-  const cartFooter = document.getElementById('cartFooter');
-  
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartCount.textContent = totalItems;
-  
-  if (cart.length === 0) {
-    cartItems.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
-    cartFooter.style.display = 'none';
-    return;
-  }
-  
-  cartFooter.style.display = 'block';
-  
-  let total = 0;
-  cartItems.innerHTML = cart.map((item, index) => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    return `
-      <div class="cart-item">
-        <div class="item-details">
-          <strong>${item.name}</strong>
-          <div>Rs. ${item.price}/${item.unit}</div>
-        </div>
-        <div class="item-controls">
-          <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
-          <span>${item.quantity}</span>
-          <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
-          <button class="remove-btn" onclick="removeItem(${index})">×</button>
-        </div>
-      </div>
-    `;
-  }).join('');
-  
-  cartTotal.textContent = total;
-}
+    function calculateTotal() {
+        const qty = document.getElementById('qty').value;
+        const total = qty * selectedPrice;
+        document.getElementById('total-val').innerText = total;
+    }
 
-function changeQuantity(index, change) {
-  cart[index].quantity += change;
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-  updateCart();
-}
-
-function removeItem(index) {
-  cart.splice(index, 1);
-  updateCart();
-}
-
-function checkout() {
-  if (cart.length === 0) return;
-  
-  let message = 'Hello! I would like to order:%0A%0A';
-  let total = 0;
-  
-  cart.forEach(item => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    message += `${item.name}: ${item.quantity} ${item.unit} - Rs.${itemTotal}%0A`;
-  });
-  
-  message += `%0ATotal: Rs.${total}`;
-  
-  window.open(`https://wa.me/917338242455?text=${message}`, '_blank');
-}
-
-// Bounce animation for cart icon
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-  }
-`;
-document.head.appendChild(style);
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const qty = document.getElementById('qty').value;
+        const total = qty * selectedPrice;
+        
+        // YOUR UPDATED WHATSAPP NUMBER
+        const myWhatsApp = "917338242455"; 
+        
+        const message = `*NEW ORDER - ARAV POULTRY*%0A` +
+                        `--------------------------%0A` +
+                        `*Product:* ${selectedItem}%0A` +
+                        `*Quantity:* ${qty} ${selectedUnit}%0A` +
+                        `*Total Amount:* ₹${total}%0A` +
+                        `--------------------------%0A` +
+                        `*Customer:* ${name}%0A` +
+                        `*Phone:* ${phone}%0A` +
+                        `*Address:* ${address}`;
+        
+        window.open(`https://wa.me/${myWhatsApp}?text=${message}`, '_blank');
+    });
 </script>
 
 </body>
