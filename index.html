@@ -4,55 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arav Poultry Farms - Fresh Healthy Poultry Products</title>
-  <meta name="google-site-verification" content="JqbiBqMfJkjpdxSl7n7d6h2c5sVz_kK9tYp8w0Q8Rxg=">
+ <meta name="google-site-verification" content="JqbiBqMfJkjpdxSl7n7d6h2c5sVz_kK9tYp8w0Q8Rxg=">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
 header { background: linear-gradient(135deg, #d4a574 0%, #c4956f 100%); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; flex-wrap: wrap; gap: 1rem; }
 .logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; }
 .logo::before { content: '🍗 '; }
-.nav-links { list-style: none; display: flex; gap: 2rem; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+.nav-links { list-style: none; display: flex; gap: 2rem; flex-wrap: wrap; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; white-space: nowrap; }
 .nav-links a:hover { opacity: 0.8; }
-.btn-cta { background: white; color: #d4a574; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; }
+.btn-cta { background: white; color: #d4a574; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
 .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 .hero { background: linear-gradient(135deg, #d4a574 0%, #c4956f 100%); color: white; text-align: center; padding: 6rem 2rem; animation: fadeInDown 1s ease-out; }
 .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-.btn-primary { background: white; color: #d4a574; padding: 0.8rem 2rem; border: none; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+.btn-primary { background: white; color: #d4a574; padding: 0.8rem 2rem; border: none; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); font-size: 1rem; }
 .btn-primary:hover { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); animation: glow 1.5s ease-in-out infinite; }
 section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
 section h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #333; text-align: center; }
-.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 .product-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 2rem; transition: all 0.3s; cursor: pointer; animation: fadeInUp 0.6s ease-out backwards; }
 .product-card:nth-child(1) { animation-delay: 0.1s; }
 .product-card:nth-child(2) { animation-delay: 0.25s; }
 .product-card:nth-child(3) { animation-delay: 0.4s; }
 .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-145
-  { font-size: 3rem; margin-bottom: 1rem; }
-.product-card h3 { margin: 1rem 0; color: #d4a574; }
-.product-card p { color: #666; margin-bottom: 1rem; }
-.price { font-weight: bold; color: #d4a574; font-size: 1.2rem; }
+.product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem; }
+.product-card h3 { margin: 1rem 0; color: #d4a574; font-size: 1.5rem; }
+.product-card p { color: #666; margin-bottom: 1rem; font-size: 1rem; }
+.price { font-weight: bold; color: #d4a574; font-size: 1.3rem; }
 .about { background: #f9f9f9; }
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.about p { text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .feature { padding: 1.5rem; background: white; border-radius: 10px; text-align: center; animation: fadeInUp 0.6s ease-out backwards; }
 .feature:nth-child(1) { animation-delay: 0.1s; }
 .feature:nth-child(2) { animation-delay: 0.25s; }
 .feature:nth-child(3) { animation-delay: 0.4s; }
 .feature:nth-child(4) { animation-delay: 0.55s; }
-.feature h4 { color: #d4a574; margin: 1rem 0; }
+.feature h4 { color: #d4a574; margin: 1rem 0; font-size: 1.1rem; }
 .testimonials { background: #f0e6d8; }
 .testimonial-card { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 4px solid #d4a574; }
-.testimonial-card p { margin-bottom: 1rem; font-style: italic; }
+.testimonial-card p { margin-bottom: 1rem; font-style: italic; font-size: 1rem; }
 .testimonial-card strong { color: #d4a574; }
 footer { background: #333; color: white; padding: 3rem 2rem 1rem; }
-.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-.footer-section h4 { margin-bottom: 1rem; color: #d4a574; }
-.footer-section p, .footer-section a { color: #ccc; text-decoration: none; margin-bottom: 0.5rem; display: block; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+.footer-section h4 { margin-bottom: 1rem; color: #d4a574; font-size: 1.1rem; }
+.footer-section p, .footer-section a { color: #ccc; text-decoration: none; margin-bottom: 0.5rem; display: block; font-size: 0.95rem; }
 .footer-section a:hover { color: #d4a574; }
 .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #555; color: #999; }
+.footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap; }
+.footer-links a { color: #ccc; text-decoration: none; }
+.cta { text-align: center; background: #fff; }
+.cta h2 { margin-bottom: 1rem; }
+.cta p { max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; }
 @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
@@ -60,14 +65,56 @@ footer { background: #333; color: white; padding: 3rem 2rem 1rem; }
 @keyframes shimmer { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
 button { transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .btn-primary:hover, .btn-cta:hover { box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4); animation: glow 1.5s ease-in-out infinite; }
-.features-list > div { animation: fadeInLeft 0.6s ease-out backwards; }
-.features-list > div:nth-child(1) { animation-delay: 0.1s; }
-.features-list > div:nth-child(2) { animation-delay: 0.25s; }
-.features-list > div:nth-child(3) { animation-delay: 0.4s; }
-.features-list > div:nth-child(4) { animation-delay: 0.55s; }
-@media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { gap: 1rem; flex-wrap: wrap; } }
-  @media (max-width: 600px) { * { margin: 0; padding: 0; } body { font-size: 14px; line-height: 1.5; } header { padding: 0.5rem 0; } .navbar { flex-direction: column; align-items: center; padding: 0 1rem; gap: 1rem; max-width: 100%; } .logo { font-size: 1.3rem; } .nav-links { gap: 0.8rem; justify-content: center; flex-wrap: wrap; } .nav-links a { font-size: 0.9rem; } .btn-cta { padding: 0.5rem 1rem; font-size: 0.85rem; } .hero { padding: 3rem 1rem; } .hero h1 { font-size: 1.8rem; margin-bottom: 0.8rem; } .hero p { font-size: 0.95rem; margin-bottom: 1.5rem; } .btn-primary { padding: 0.6rem 1.5rem; font-size: 0.9rem; } section { padding: 2rem 1rem; } section h2 { font-size: 1.5rem; margin-bottom: 1.5rem; } .products-grid { grid-template-columns: 1fr; gap: 1rem; } .product-card { padding: 1.5rem; margin-bottom: 1rem; } 155
-                             { font-size: 2.5rem; } .product-card h3 { font-size: 1.1rem; } .product-card p { font-size: 0.9rem; } .price { font-size: 1rem; } .features { grid-template-columns: 1fr; gap: 1rem; } .feature { padding: 1rem; } .footer-content { grid-template-columns: 1fr; gap: 1.5rem; } .testimonial-card { padding: 1.5rem; margin-bottom: 1rem; } .testimonial-card p { font-size: 0.9rem; } footer { padding: 2rem 1rem 1rem; } }
+
+/* Tablet Responsive */
+@media (max-width: 992px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.1rem; }
+  section h2 { font-size: 2rem; }
+  .navbar { padding: 0 1.5rem; }
+  .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .nav-links { gap: 1rem; justify-content: center; }
+  section { padding: 3rem 1.5rem; }
+  section h2 { font-size: 1.8rem; }
+}
+
+@media (max-width: 600px) {
+  * { margin: 0; padding: 0; }
+  body { font-size: 14px; line-height: 1.5; }
+  header { padding: 0.75rem 0; }
+  .navbar { flex-direction: column; align-items: center; padding: 0 1rem; gap: 0.75rem; }
+  .logo { font-size: 1.4rem; }
+  .nav-links { gap: 0.75rem; font-size: 0.9rem; justify-content: center; }
+  .btn-cta { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+  .hero { padding: 3rem 1.2rem; }
+  .hero h1 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+  .hero p { font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .btn-primary { padding: 0.7rem 1.5rem; font-size: 0.95rem; }
+  section { padding: 2.5rem 1.2rem; }
+  section h2 { font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .products-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .product-card { padding: 1.5rem; }
+  .product-card img { height: 180px; }
+  .product-card h3 { font-size: 1.3rem; }
+  .product-card p { font-size: 0.95rem; }
+  .price { font-size: 1.1rem; }
+  .about p { font-size: 1rem; }
+  .features { grid-template-columns: 1fr; gap: 1rem; }
+  .feature { padding: 1.2rem; }
+  .feature h4 { font-size: 1rem; }
+  .footer-content { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+  .footer-section h4 { font-size: 1rem; }
+  .testimonial-card { padding: 1.5rem; margin-bottom: 1rem; }
+  .testimonial-card p { font-size: 0.95rem; }
+  footer { padding: 2rem 1rem 1rem; }
+  .footer-links { flex-direction: column; gap: 0.75rem; }
+}
 </style>
 </head>
 <body>
@@ -95,21 +142,20 @@ button { transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 <section id="products">
 <h2>Our Premium Products</h2>
 <div class="products-grid">
-140
-  
-<div class="product-icon<img src='https://images.unsplash.com/photo-1599599810694-2202a3194287?w=500&h=300&fit=crop' alt='Fresh Eggs' style='width:100%;height:200px;object-fit:cover;border-radius:10px;'>div>
+<div class="product-card">
+<img src='https://images.unsplash.com/photo-1599599810694-2202a3194287?w=500&h=300&fit=crop' alt='Fresh Eggs'>
 <h3>Fresh Eggs</h3>
 <p>Organic, farm-fresh eggs packed with nutrients. Free from antibiotics and hormones.</p>
 <div class="price">From Rs. 70/dozen</div>
 </div>
 <div class="product-card">
-<div class="product-icon">🐔</<img src='https://images.unsplash.com/photo-1569718899841-64d88d68ff9e?w=500&h=300&fit=crop' alt='Broiler Chicken' style='width:100%;height:200px;object-fit:cover;border-radius:10px;'>>
+<img src='https://images.unsplash.com/photo-1569718899841-64d88d68ff9e?w=500&h=300&fit=crop' alt='Broiler Chicken'>
 <h3>Broiler Chicken</h3>
 <p>High-quality broiler chicken meat - tender, succulent, and perfectly fresh.</p>
 <div class="price">From Rs. 180/kg</div>
 </div>
 <div class="product-card">
-<div class="product-icon">🐙</<img src='https://images.unsplash.com/photo-1581174543244-76a2f8d9ceac?w=500&h=300&fit=crop' alt='Layer Chicken' style='width:100%;height:200px;object-fit:cover;border-radius:10px;'>>
+<img src='https://images.unsplash.com/photo-1581174543244-76a2f8d9ceac?w=500&h=300&fit=crop' alt='Layer Chicken'>
 <h3>Layer Chicken</h3>
 <p>Nutritious layer chicken ideal for stewing and traditional cooking preparations.</p>
 <div class="price">From Rs. 150/kg</div>
@@ -206,6 +252,5 @@ productCards.forEach(card => {
 });
 console.log('✨ Animation effects loaded successfully!');
 </script>
-  
 </body>
 </html>
