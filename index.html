@@ -10,44 +10,52 @@
             --secondary: #f4b400;
             --light: #f4fcf4;
             --dark: #1a1a1a;
+            --white: #ffffff;
         }
 
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #fff; color: var(--dark); line-height: 1.6; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--white); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
         
         /* Navigation */
-        nav { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        nav { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .logo { font-size: 1.4rem; font-weight: bold; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 500; }
 
         /* Hero */
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1200&q=80'); 
-                height: 400px; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { margin: 0; font-size: 2.5rem; }
-        .hero p { font-size: 1.2rem; color: var(--secondary); }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1200&q=80'); 
+                height: 450px; background-size: cover; background-position: center; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero h1 { margin: 0; font-size: 3rem; }
+        .hero p { font-size: 1.3rem; color: var(--secondary); margin-top: 10px; }
 
-        /* About Section (From your site) */
+        /* Sections */
         .section { padding: 4rem 10%; text-align: center; }
         .bg-light { background: var(--light); }
         .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .info-card { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .info-card { padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
-        /* Products Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .card { background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: 0.3s; text-align: left; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .card-img { height: 200px; background-size: cover; background-position: center; }
-        .card-content { padding: 20px; }
-        .price { color: var(--primary); font-size: 1.5rem; font-weight: bold; margin: 10px 0; }
+        /* Products */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .card { background: white; border: 1px solid #eee; border-radius: 15px; overflow: hidden; transition: 0.4s; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-img { height: 250px; background-size: cover; background-position: center; }
+        .card-content { padding: 25px; }
+        .price { color: var(--primary); font-size: 1.6rem; font-weight: bold; margin: 12px 0; }
         
-        .btn { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; font-size: 1rem; }
-        
+        .btn { background: var(--primary); color: white; border: none; padding: 14px 25px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+        .btn:hover { background: #1e3d1a; }
+
         /* Checkout Overlay */
         #checkout-page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 2000; overflow-y: auto; padding: 20px; box-sizing: border-box; }
-        .checkout-box { max-width: 500px; margin: 20px auto; padding: 30px; border: 1px solid #eee; border-radius: 15px; }
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        .whatsapp-btn { background: #25D366; margin-top: 20px; font-size: 1.1rem; }
+        .checkout-box { max-width: 550px; margin: 20px auto; padding: 35px; border: 1px solid #eee; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        label { display: block; margin-top: 15px; font-weight: 600; color: #444; }
+        input, textarea { width: 100%; padding: 14px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+        .whatsapp-btn { background: #25D366; margin-top: 25px; }
 
-        footer { background: var(--dark); color: white; padding: 3rem 10%; font-size: 0.9rem; text-align: center; }
+        /* Contact Footer */
+        footer { background: var(--dark); color: white; padding: 4rem 10%; font-size: 1rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: left; }
+        .footer-section h4 { color: var(--secondary); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-section p { margin: 8px 0; color: #ccc; }
+        .footer-bottom { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #333; color: #888; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -58,61 +66,62 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>Freshly Produced Eggs & Chicken</h1>
-        <p>Premium BV 300 Breed - Direct from Farm</p>
+        <h1>Premium BV 300 Poultry</h1>
+        <p>Direct From Farm • Purely Fresh • Highly Nutritious</p>
     </section>
 
     <section id="about" class="section">
-        <h2>Why Choose Us?</h2>
-        <p style="max-width: 800px; margin: 0 auto;">At Arav Poultry Farms, we prioritize quality, health, and hygiene. Our BV 300 layers are raised in a stress-free environment with high-quality nutrition to ensure premium output.</p>
+        <h2>Quality You Can Trust</h2>
+        <p style="max-width: 800px; margin: 0 auto; color: #555; font-size: 1.1rem;">At Arav Poultry Farms, we specialize in the high-performing BV 300 breed, known for superior egg quality and bird health. We serve major hubs including Chennai, Bangalore, and Hyderabad.</p>
         <div class="info-grid">
             <div class="info-card">
-                <h3>Strict Hygiene</h3>
-                <p>We maintain top-tier cleanliness standards in all our farming units.</p>
+                <h3 style="color: var(--primary);">Fresh Daily</h3>
+                <p>Eggs are collected and dispatched within 24 hours to ensure maximum freshness.</p>
             </div>
             <div class="info-card">
-                <h3>Quality Feed</h3>
-                <p>Our birds are fed balanced nutrition for the healthiest eggs and meat.</p>
+                <h3 style="color: var(--primary);">Hygienic Farming</h3>
+                <p>Bio-secure environments protect our birds from infections and stress.</p>
             </div>
             <div class="info-card">
-                <h3>Fast Delivery</h3>
-                <p>Serving major hubs: Chennai, Bangalore, and Hyderabad.</p>
+                <h3 style="color: var(--primary);">Healthy Birds</h3>
+                <p>Our BV 300 layers receive premium vegetarian feed with no added hormones.</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="section bg-light">
-        <h2>Our Products</h2>
+        <h2>Our Farm Products</h2>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1582722872445-44c5bc7e3c52?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1598965402089-897ce52e8355?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="card-content">
                     <h3>White Eggs (BV 300)</h3>
-                    <p>Clean, protein-rich eggs from high-yield BV 300 layers. Perfect for daily nutrition.</p>
+                    <p>Standardized size, thick shells, and bright yellow yolks. Best for wholesale and retail.</p>
                     <div class="price">₹140 <small>/ Dozen</small></div>
                     <button class="btn" onclick="openCheckout('BV 300 White Eggs', 140, 'Dozen')">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1604351810947-814da4746366?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1569230114915-66774653303d?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="card-content">
                     <h3>Live Layer (BV 300)</h3>
-                    <p>Healthy, infection-free birds grown under expert supervision.</p>
+                    <p>Fully grown, healthy white layer birds. High weight-to-health ratio.</p>
                     <div class="price">₹250 <small>/ KG</small></div>
                     <button class="btn" onclick="openCheckout('BV 300 Layer Chicken', 250, 'KG')">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="card-content">
                     <h3>Fresh Broiler Chicken</h3>
-                    <p>Processed daily to ensure the highest freshness and tenderness.</p>
+                    <p>Cleanly processed, tender meat. Available for bulk and family orders.</p>
                     <div class="price">₹210 <small>/ KG</small></div>
                     <button class="btn" onclick="openCheckout('Fresh Broiler Chicken', 210, 'KG')">Order Now</button>
                 </div>
@@ -120,32 +129,57 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Arav Poultry Farms. Serving Chennai | Bangalore | Hyderabad</p>
-    </footer >
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Arav Poultry Farms</h4>
+                <p>Delivering health and nutrition through premium poultry products.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Details</h4>
+                <p><strong>Phone:</strong> +91 7338242455</p>
+                <p><strong>Email:</strong> preetampwar137@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Locations Served</h4>
+                <p>Chennai, Tamil Nadu</p>
+                <p>Bangalore, Karnataka</p>
+                <p>Hyderabad, Telangana</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Arav Poultry Farms. All rights reserved.
+        </div>
+    </footer>
 </div>
 
 <div id="checkout-page">
     <div class="checkout-box">
-        <button onclick="closeCheckout()" style="background:none; border:none; color:var(--primary); cursor:pointer; font-weight:bold;">← BACK</button>
-        <h2 style="color:var(--primary);">Order Details</h2>
-        <div style="background:#f4fcf4; padding:15px; border-radius:8px; margin-bottom:20px;">
-            <p><strong>Item:</strong> <span id="disp-item"></span></p>
-            <p><strong>Rate:</strong> ₹<span id="disp-price"></span> / <span id="disp-unit"></span></p>
+        <button onclick="closeCheckout()" style="background:none; border:none; color:var(--primary); cursor:pointer; font-weight:bold; font-size:1rem;">← BACK TO FARM</button>
+        <h2 style="color:var(--primary); margin-top:20px;">Complete Your Order</h2>
+        
+        <div style="background:var(--light); padding:20px; border-radius:12px; margin-bottom:25px; border-left: 5px solid var(--secondary);">
+            <p style="margin:0;"><strong>Selected Item:</strong> <span id="disp-item"></span></p>
+            <p style="margin:8px 0 0 0;"><strong>Unit Price:</strong> ₹<span id="disp-price"></span> / <span id="disp-unit"></span></p>
         </div>
 
         <form id="orderForm">
             <label>Quantity:</label>
             <input type="number" id="qty" value="1" min="1" oninput="updateTotal()" required>
-            <p><strong>Estimated Total: ₹<span id="total-val">0</span></strong></p>
+            <p style="font-size:1.3rem; font-weight:bold; color:var(--primary);">Order Total: ₹<span id="total-val">0</span></p>
             
-            <hr>
-            <h3>Shipping Details</h3>
-            <input type="text" id="name" placeholder="Full Name" required>
-            <input type="tel" id="phone" placeholder="WhatsApp Number" required>
-            <textarea id="address" rows="3" placeholder="Full Address for Delivery" required></textarea>
+            <hr style="border:0; border-top:1px solid #eee; margin:25px 0;">
+            <h3>Delivery Information</h3>
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
             
-            <button type="submit" class="btn whatsapp-btn">Confirm Order (WhatsApp)</button>
+            <label>WhatsApp Number</label>
+            <input type="tel" id="phone" value="917338242455" placeholder="Your WhatsApp number" required>
+            
+            <label>Full Delivery Address</label>
+            <textarea id="address" rows="3" placeholder="Door No, Street Name, Area, City" required></textarea>
+            
+            <button type="submit" class="btn whatsapp-btn">Place Order on WhatsApp</button>
         </form>
     </div>
 </div>
@@ -161,6 +195,7 @@
         updateTotal();
         document.getElementById('main-site').style.display = 'none';
         document.getElementById('checkout-page').style.display = 'block';
+        window.scrollTo(0,0);
     }
 
     function closeCheckout() {
@@ -169,12 +204,26 @@
     }
 
     function updateTotal() {
-        document.getElementById('total-val').innerText = document.getElementById('qty').value * currentPrice;
+        const qty = document.getElementById('qty').value;
+        document.getElementById('total-val').innerText = qty * currentPrice;
     }
 
     document.getElementById('orderForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const msg = `*NEW ORDER - ARAV POULTRY*%0A*Item:* ${currentItem}%0A*Qty:* ${document.getElementById('qty').value} ${currentUnit}%0A*Total:* ₹${document.getElementById('total-val').innerText}%0A------------------%0A*Name:* ${document.getElementById('name').value}%0A*Address:* ${document.getElementById('address').value}`;
+        const qty = document.getElementById('qty').value;
+        const total = document.getElementById('total-val').innerText;
+        const name = document.getElementById('name').value;
+        const addr = document.getElementById('address').value;
+        
+        const msg = `*NEW ORDER - ARAV POULTRY FARMS*%0A` +
+                    `--------------------------%0A` +
+                    `*Item:* ${currentItem}%0A` +
+                    `*Quantity:* ${qty} ${currentUnit}%0A` +
+                    `*Total:* ₹${total}%0A` +
+                    `--------------------------%0A` +
+                    `*Customer:* ${name}%0A` +
+                    `*Delivery Address:* ${addr}`;
+                    
         window.open(`https://wa.me/917338242455?text=${msg}`, '_blank');
     });
 </script>
