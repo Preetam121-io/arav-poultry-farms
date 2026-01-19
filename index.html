@@ -6,25 +6,22 @@
     <title>Arav Poultry Farms | BV 300 Specialist</title>
     <style>
         :root {
-            --primary: #1b4332; /* Deep Farm Green */
-            --accent: #ffb703; /* Egg Yolk Yellow */
+            --primary: #1b4332; 
+            --accent: #ffb703; 
             --bg: #f8f9fa;
             --text: #212529;
         }
 
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
         
-        /* Modern Header */
         nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
         .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; color: var(--primary); text-transform: uppercase; }
         .logo-box { background: var(--primary); color: white; padding: 5px 12px; border-radius: 4px; }
         
-        /* Hero Section - Clean & Minimal */
         .hero { padding: 80px 10%; background: var(--primary); color: white; text-align: left; }
         .hero h1 { font-size: 3rem; margin: 0; line-height: 1.1; }
         .hero p { opacity: 0.9; font-size: 1.1rem; max-width: 600px; margin: 20px 0; }
 
-        /* Product Section - The Focus */
         .section { padding: 60px 10%; }
         .section-title { text-align: center; margin-bottom: 40px; }
         .section-title h2 { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
@@ -45,13 +42,10 @@
         .order-btn { background: var(--primary); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; }
         .order-btn:hover { background: #2d6a4f; transform: translateY(-2px); }
 
-        /* Footer - Direct Contact Focus */
         footer { background: #121212; color: white; padding: 60px 10%; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .contact-item { margin-bottom: 15px; display: flex; gap: 10px; align-items: center; }
         .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; text-align: center; font-size: 0.8rem; color: #777; }
 
-        /* Checkout - Same functionality, better look */
         #checkout-page { display: none; position: fixed; inset: 0; background: white; z-index: 2000; overflow-y: auto; padding: 20px; }
         .checkout-box { max-width: 450px; margin: 40px auto; }
         .back-link { cursor: pointer; color: var(--primary); font-weight: bold; display: block; margin-bottom: 30px; }
@@ -90,7 +84,7 @@
                     <h3>White Eggs (BV 300)</h3>
                     <p>Standardized, protein-rich white eggs from our premium BV 300 layer units. Farm fresh delivery every morning.</p>
                     <div class="price-tag">₹70 <small style="font-size: 0.9rem; font-weight: 400; color: #666;">/ Dozen</small></div>
-                    <button class="order-btn" onclick="openCheckout('BV 300 White Eggs', 140, 'Dozen')">Order via WhatsApp</button>
+                    <button class="order-btn" onclick="openCheckout('BV 300 White Eggs', 70, 'Dozen')">Order via WhatsApp</button>
                 </div>
             </div>
 
@@ -102,7 +96,7 @@
                 <div class="product-info">
                     <h3>Live Layer (BV 300)</h3>
                     <p>Highly healthy, infection-free white layer birds. Optimized for weight and health profile.</p>
-                    <div class="price-tag">₹150 <small style="font-size: 0.9rem; font-weight: 400; color: #666;">/ KG</small></div>
+                    <div class="price-tag">₹250 <small style="font-size: 0.9rem; font-weight: 400; color: #666;">/ KG</small></div>
                     <button class="order-btn" onclick="openCheckout('BV 300 Layer Chicken', 250, 'KG')">Order via WhatsApp</button>
                 </div>
             </div>
@@ -129,9 +123,9 @@
             </div>
             <div>
                 <h4 style="margin-bottom: 25px;">Get in Touch</h4>
-                <div class="contact-item">📞 +91 7338242455</div>
-                <div class="contact-item">✉️ preetampwar137@gmail.com</div>
-                <div class="contact-item">📍 Chennai | Bangalore | Hyderabad</div>
+                <div style="margin-bottom: 10px;">📞 +91 7338242455</div>
+                <div style="margin-bottom: 10px;">✉️ preetampwar137@gmail.com</div>
+                <div>📍 Chennai | Bangalore | Hyderabad</div>
             </div>
         </div>
         <div class="footer-bottom">© 2026 Arav Poultry Farms. All Rights Reserved.</div>
@@ -172,11 +166,16 @@
     let currentPrice = 0, currentItem = "", currentUnit = "";
 
     function openCheckout(name, price, unit) {
-        currentItem = name; currentPrice = price; currentUnit = unit;
+        currentItem = name; 
+        currentPrice = price; 
+        currentUnit = unit;
+        
         document.getElementById('disp-item').innerText = name;
         document.getElementById('disp-price').innerText = price;
         document.getElementById('disp-unit').innerText = unit;
+        
         updateTotal();
+        
         document.getElementById('main-site').style.display = 'none';
         document.getElementById('checkout-page').style.display = 'block';
         window.scrollTo(0,0);
@@ -188,12 +187,19 @@
     }
 
     function updateTotal() {
-        document.getElementById('total-val').innerText = document.getElementById('qty').value * currentPrice;
+        const qty = document.getElementById('qty').value;
+        document.getElementById('total-val').innerText = qty * currentPrice;
     }
 
     document.getElementById('orderForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const msg = `*NEW ORDER - ARAV POULTRY FARMS*%0A--------------------------%0A*Item:* ${currentItem}%0A*Qty:* ${document.getElementById('qty').value} ${currentUnit}%0A*Total:* ₹${document.getElementById('total-val').innerText}%0A--------------------------%0A*Customer:* ${document.getElementById('name').value}%0A*Address:* ${document.getElementById('address').value}`;
+        const qty = document.getElementById('qty').value;
+        const total = document.getElementById('total-val').innerText;
+        const name = document.getElementById('name').value;
+        const addr = document.getElementById('address').value;
+        
+        const msg = `*NEW ORDER - ARAV POULTRY FARMS*%0A--------------------------%0A*Item:* ${currentItem}%0A*Qty:* ${qty} ${currentUnit}%0A*Total:* ₹${total}%0A--------------------------%0A*Customer:* ${name}%0A*Address:* ${addr}`;
+        
         window.open(`https://wa.me/917338242455?text=${msg}`, '_blank');
     });
 </script>
