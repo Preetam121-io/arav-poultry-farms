@@ -10,6 +10,7 @@
             --accent: #ffb703; 
             --bg: #f8f9fa;
             --text: #212529;
+            --upi-blue: #0971b8;
         }
 
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
@@ -52,7 +53,16 @@
         .summary-card { background: #f0f7f4; padding: 20px; border-radius: 12px; border-left: 6px solid var(--primary); margin-bottom: 30px; }
         input, textarea { width: 100%; padding: 14px; margin: 10px 0; border: 1.5px solid #eee; border-radius: 10px; box-sizing: border-box; font-size: 1rem; outline: none; transition: 0.3s; }
         input:focus { border-color: var(--primary); }
+        
+        /* Buttons */
         .confirm-btn { background: #25D366; color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 20px; }
+        .upi-btn { background: var(--upi-blue); color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .upi-btn:hover { background: #075a94; }
+        
+        .payment-choice { text-align: center; margin: 20px 0; font-weight: 600; color: #666; font-size: 0.9rem; position: relative; }
+        .payment-choice::before, .payment-choice::after { content: ""; position: absolute; top: 50%; width: 40%; height: 1px; background: #eee; }
+        .payment-choice::before { left: 0; }
+        .payment-choice::after { right: 0; }
     </style>
 </head>
 <body>
@@ -136,7 +146,7 @@
     <div class="checkout-box">
         <div class="back-link" onclick="closeCheckout()">← BACK TO BROWSE</div>
         <h2 style="margin-bottom: 10px;">Review Order</h2>
-        <p style="color: #666; margin-bottom: 30px;">Fill in your details to confirm the order via WhatsApp.</p>
+        <p style="color: #666; margin-bottom: 30px;">Choose a method to place your order.</p>
         
         <div class="summary-card">
             <div style="font-weight: bold; color: var(--primary); font-size: 1.2rem;" id="disp-item"></div>
@@ -158,6 +168,13 @@
             <textarea id="address" rows="3" placeholder="Delivery Address (Area, Landmark, City)" required></textarea>
             
             <button type="submit" class="confirm-btn">Confirm Order (WhatsApp)</button>
+            
+            <div class="payment-choice">OR</div>
+            
+            <button type="button" class="upi-btn" onclick="payViaUPI()">
+                Pay ₹<span id="upi-total">0</span> via UPI
+            </button>
+            <p style="text-align: center; font-size: 0.75rem; color: #888; margin-top: 10px;">*Note: Please share payment screenshot on WhatsApp after paying.</p>
         </form>
     </div>
 </div>
@@ -188,7 +205,28 @@
 
     function updateTotal() {
         const qty = document.getElementById('qty').value;
-        document.getElementById('total-val').innerText = qty * currentPrice;
+        const total = qty * currentPrice;
+        document.getElementById('total-val').innerText = total;
+        document.getElementById('upi-total').innerText = total;
+    }
+
+    function payViaUPI() {
+        const name = document.getElementById('name').value;
+        const total = document.getElementById('total-val').innerText;
+        
+        if (!name) {
+            alert("Please enter your name first.");
+            return;
+        }
+
+        const upiId = "7338242455@ybl";
+        const merchantName = "Arav Poultry Farms";
+        const note = encodeURIComponent(`Order for ${currentItem} - ${name}`);
+        
+        // UPI deep link
+        const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(merchantName)}&am=${total}&tn=${note}&cu=INR`;
+        
+        window.location.href = upiUrl;
     }
 
     document.getElementById('orderForm').addEventListener('submit', function(e) {
