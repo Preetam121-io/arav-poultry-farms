@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arav Poultry Farms | Fresh BV 300</title>
+    <title>Arav Poultry Farms | Fresh BV 300 Breed</title>
     <style>
         :root {
             --primary: #1b4332; 
@@ -16,43 +16,98 @@
 
         body { font-family: 'Inter', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); scroll-behavior: smooth; }
         
+        /* Navigation */
         nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top:0; z-index:100;}
-        .logo { font-weight: 800; color: var(--primary); text-transform: uppercase; }
+        .logo { font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; margin-left: 20px; font-size: 0.9rem; }
 
-        .hero { padding: 60px 10%; background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; color: white; text-align: center; }
-        
+        /* Hero Section */
+        .hero { padding: 80px 10%; background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; color: white; text-align: center; }
+        .hero h1 { font-size: 3rem; margin: 0; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; color: var(--accent); margin-top: 15px; }
+
+        /* Trust Section */
+        .trust-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px 10%; background: white; text-align: center; }
+        .trust-item h4 { margin: 10px 0 5px; color: var(--primary); }
+        .trust-item p { font-size: 0.85rem; color: #666; margin: 0; }
+
+        /* Products Header */
+        .section-head { text-align: center; padding-top: 50px; }
+        .section-head h2 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        .underline { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+
+        /* Product Grid */
         .section { padding: 40px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .img-box { height: 220px; background: #eee; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .img-box { height: 250px; background: #eee; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .p-info { padding: 20px; }
-        .price { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 10px 0; }
+        .p-info { padding: 25px; }
+        .p-info h3 { margin: 0; color: var(--primary); }
+        .p-info p { font-size: 0.9rem; color: #666; margin: 10px 0; }
+        .price { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
         
-        .btn { width: 100%; padding: 16px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.2s; }
+        /* Buttons */
+        .btn { width: 100%; padding: 16px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.2s; }
         .btn-order { background: var(--primary); color: white; }
-
+        .btn-order:hover { background: #2d6a4f; }
+        
         /* Checkout Overlay */
         #checkout { display: none; position: fixed; inset: 0; background: white; z-index: 1000; overflow-y: auto; padding: 20px; }
-        .box { max-width: 450px; margin: 0 auto; }
-        .summary { background: #f0f7f4; padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary); margin: 20px 0; }
+        .box { max-width: 450px; margin: 0 auto; padding-bottom: 50px; }
+        .summary { background: #f0f7f4; padding: 20px; border-radius: 12px; border-left: 6px solid var(--primary); margin: 20px 0; }
         
         input, textarea { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 1rem; }
         .upi-btn { background: var(--upi); color: white; margin-top: 10px; }
         .wa-btn { background: var(--wa); color: white; margin-top: 10px; }
+        .back { color: var(--primary); cursor: pointer; font-weight: bold; margin-bottom: 30px; display: block; }
         
-        /* Payment Modal */
-        #pay-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .pay-box { background: white; padding: 25px; border-radius: 20px; text-align: center; width: 100%; max-width: 350px; }
-        .qr-img { width: 220px; margin: 15px 0; border: 1px solid #eee; }
-        .upi-id-copy { background: #f4f4f4; padding: 12px; border-radius: 8px; font-weight: bold; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        footer { background: #1a1a1a; color: white; padding: 60px 10%; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
-<div id="main-site">
-    <nav><div class="logo">Arav Poultry Farms</div></nav>
-    <section class="hero"><h1>Premium BV 300 Poultry</h1><p>Chennai | Bangalore | Hyderabad</p></section>
+<div id="main">
+    <nav>
+        <div class="logo">Arav Poultry Farms</div>
+        <div class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Farm Fresh BV 300 <br>Eggs & Poultry</h1>
+        <p>Direct from Farm to your Doorstep</p>
+    </section>
+
+    <section class="trust-bar">
+        <div class="trust-item">
+            <h4>🌿 100% Organic Feed</h4>
+            <p>Raised on high-quality nutrition.</p>
+        </div>
+        <div class="trust-item">
+            <h4>🚚 Same Day Dispatch</h4>
+            <p>Freshest eggs in the market.</p>
+        </div>
+        <div class="trust-item">
+            <h4>🛡️ Bio-Secure Farm</h4>
+            <p>Strict hygiene standards followed.</p>
+        </div>
+        <div class="trust-item">
+            <h4>📍 City Coverage</h4>
+            <p>Chennai | Bangalore | Hyderabad</p>
+        </div>
+    </section>
+
+    <div class="section-head" id="products">
+        <h2>Our Fresh Products</h2>
+        <div class="underline"></div>
+    </div>
 
     <section class="section">
         <div class="grid">
@@ -60,6 +115,7 @@
                 <div class="img-box"><img src="https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
                 <div class="p-info">
                     <h3>White Eggs (BV 300)</h3>
+                    <p>Clean, protein-rich white eggs from our BV 300 layers. Collected daily.</p>
                     <div class="price">₹70 <small>/ Dozen</small></div>
                     <button class="btn btn-order" onclick="openOrder('BV 300 White Eggs', 70, 'Dozen')">Order Now</button>
                 </div>
@@ -68,6 +124,7 @@
                 <div class="img-box"><img src="https://images.pexels.com/photos/1405930/pexels-photo-1405930.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
                 <div class="p-info">
                     <h3>Live Layer (BV 300)</h3>
+                    <p>Healthy, infection-free white layer birds. Optimized for health profile.</p>
                     <div class="price">₹250 <small>/ KG</small></div>
                     <button class="btn btn-order" onclick="openOrder('BV 300 Layer Chicken', 250, 'KG')">Order Now</button>
                 </div>
@@ -76,81 +133,118 @@
                 <div class="img-box"><img src="https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
                 <div class="p-info">
                     <h3>Fresh Broiler Chicken</h3>
+                    <p>Tender and farm-processed meat. Cleaned and packed with hygiene.</p>
                     <div class="price">₹210 <small>/ KG</small></div>
                     <button class="btn btn-order" onclick="openOrder('Fresh Broiler Chicken', 210, 'KG')">Order Now</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">ARAV POULTRY</div>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Leading supplier of BV 300 breed poultry products in South India. Dedicated to quality and freshness.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px;">Contact Us</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">📞 +91 7338242455</p>
+                <p style="font-size: 0.9rem;">✉️ preetampwar137@gmail.com</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px;">Locations Served</h4>
+                <p style="font-size: 0.9rem;">Chennai, Tamil Nadu<br>Bangalore, Karnataka<br>Hyderabad, Telangana</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid #333; padding-top: 20px;">
+            © 2026 Arav Poultry Farms. All rights reserved.
+        </div>
+    </footer>
 </div>
 
 <div id="checkout">
     <div class="box">
-        <span onclick="closeOrder()" style="cursor:pointer; font-weight:bold; color:var(--primary)">← BACK</span>
-        <h2>Confirm Details</h2>
-        <div class="summary">
-            <div id="p-name" style="font-weight: bold; font-size: 1.2rem;"></div>
-            <div id="p-rate"></div>
-        </div>
-        <label>Quantity</label>
-        <input type="number" id="qty" value="1" min="1" oninput="updateTotal()">
-        <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:800; margin:15px 0;">
-            <span>Total:</span><span>₹<span id="total">0</span></span>
-        </div>
-        <input type="text" id="name" placeholder="Full Name">
-        <textarea id="addr" rows="2" placeholder="Full Address"></textarea>
+        <span class="back" onclick="closeOrder()">← BACK TO PRODUCTS</span>
+        <h2 style="margin-bottom: 5px;">Confirm Order</h2>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">Provide your details for delivery.</p>
         
-        <button class="btn upi-btn" onclick="showPayment()">Pay ₹<span id="btn-val"></span> via UPI</button>
-        <div style="text-align:center; margin:10px 0; font-size:0.8rem; font-weight:bold; color:#888;">OR</div>
-        <button class="btn wa-btn" onclick="sendWA()">Order on WhatsApp (COD)</button>
-    </div>
-</div>
-
-<div id="pay-modal" onclick="closePayment(event)">
-    <div class="pay-box" onclick="event.stopPropagation()">
-        <h3 style="margin-top:0;">Scan & Pay</h3>
-        <p style="font-size: 0.85rem; color: #666;">Scan QR with GPay, PhonePe, or Paytm</p>
-        <img id="qr-code" class="qr-img" src="">
-        <div class="upi-id-copy" onclick="copyUPI()">
-            <span id="upi-id-text">7338242455@ybl</span>
-            <span style="color:var(--upi); font-size:0.7rem;">COPY ID</span>
+        <div class="summary">
+            <div id="sel-item" style="font-weight: bold; font-size: 1.2rem; color: var(--primary);"></div>
+            <div style="margin-top: 5px;">₹<span id="sel-rate"></span> per <span id="sel-unit"></span></div>
         </div>
-        <p style="font-size:0.8rem; color:red;">* Share payment screenshot on WhatsApp</p>
-        <button class="btn wa-btn" onclick="sendWA()">Share Screenshot on WhatsApp</button>
-        <button onclick="closePaymentModal()" style="border:none; background:none; margin-top:15px; cursor:pointer; color:#888;">Cancel</button>
+
+        <label style="font-weight: 600;">Quantity</label>
+        <input type="number" id="order-qty" value="1" min="1" oninput="recalc()">
+        
+        <div style="display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 800; margin: 25px 0;">
+            <span>Total Payable:</span>
+            <span style="color: var(--primary);">₹<span id="order-total">0</span></span>
+        </div>
+
+        <input type="text" id="user-name" placeholder="Your Full Name">
+        <textarea id="user-addr" rows="3" placeholder="Full Delivery Address (Area, Landmark, City)"></textarea>
+        
+        <button class="btn upi-btn" onclick="handleUPI()">Pay ₹<span id="upi-btn-val"></span> via UPI App</button>
+        <div style="text-align: center; margin: 15px 0; color: #888; font-size: 0.8rem; font-weight: bold;">OR</div>
+        <button class="btn wa-btn" onclick="handleWA()">Confirm Order on WhatsApp</button>
+        
+        <p style="text-align: center; color: #888; font-size: 0.7rem; margin-top: 25px;">UPI ID: 7338242455@ybl</p>
     </div>
 </div>
 
 <script>
-    let currentItem = "", currentRate = 0, currentUnit = "";
+    let p_price = 0, p_name = "", p_unit = "";
 
-    function openOrder(n, r, u) {
-        currentItem = n; currentRate = r; currentUnit = u;
-        document.getElementById('p-name').innerText = n;
-        document.getElementById('p-rate').innerText = `₹${r} / ${u}`;
-        updateTotal();
-        document.getElementById('main-site').style.display = 'none';
+    function openOrder(name, price, unit) {
+        p_name = name; p_price = price; p_unit = unit;
+        document.getElementById('sel-item').innerText = name;
+        document.getElementById('sel-rate').innerText = price;
+        document.getElementById('sel-unit').innerText = unit;
+        recalc();
+        document.getElementById('main').style.display = 'none';
         document.getElementById('checkout').style.display = 'block';
+        window.scrollTo(0,0);
     }
 
     function closeOrder() {
-        document.getElementById('main-site').style.display = 'block';
+        document.getElementById('main').style.display = 'block';
         document.getElementById('checkout').style.display = 'none';
     }
 
-    function updateTotal() {
-        const q = document.getElementById('qty').value || 1;
-        const t = q * currentRate;
-        document.getElementById('total').innerText = t;
-        document.getElementById('btn-val').innerText = t;
+    function recalc() {
+        const q = document.getElementById('order-qty').value || 1;
+        const total = q * p_price;
+        document.getElementById('order-total').innerText = total;
+        document.getElementById('upi-btn-val').innerText = total;
     }
 
-    function showPayment() {
-        const n = document.getElementById('name').value;
-        const a = document.getElementById('addr').value;
-        if(!n || !a) { alert("Please enter Name and Address first"); return; }
-        
-        const total = document.getElementById('total').innerText;
-        const upiId = "7338242455@ybl";
-        // Generating the QR code image
-        const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=${upiId}%26pn=Arav%20Poultry%26am=${total}%26
+    function validate() {
+        const n = document.getElementById('user-name').value;
+        const a = document.getElementById('user-addr').value;
+        if(!n || !a) {
+            alert("Please provide both Name and Delivery Address.");
+            return false;
+        }
+        return { name: n, addr: a };
+    }
+
+    function handleUPI() {
+        const user = validate();
+        if(!user) return;
+        const total = document.getElementById('order-total').innerText;
+        const url = `upi://pay?pa=7338242455@ybl&pn=Arav%20Poultry&am=${total}&tn=Order%20by%20${encodeURIComponent(user.name)}&cu=INR`;
+        window.location.href = url;
+    }
+
+    function handleWA() {
+        const user = validate();
+        if(!user) return;
+        const q = document.getElementById('order-qty').value;
+        const t = document.getElementById('order-total').innerText;
+        const msg = `*NEW ORDER - ARAV POULTRY*%0A*Item:* ${p_name}%0A*Qty:* ${q} ${p_unit}%0A*Total:* ₹${t}%0A------------------%0A*Name:* ${user.name}%0A*Address:* ${user.addr}`;
+        window.open(`https://wa.me/917338242455?text=${msg}`, '_blank');
+    }
+</script>
+</body>
+</html>
