@@ -10,7 +10,7 @@
             --accent: #ffb703; 
             --bg: #f8f9fa;
             --text: #212529;
-            --upi-blue: #0971b8;
+            --upi-blue: #0055a4;
         }
 
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
@@ -54,15 +54,18 @@
         input, textarea { width: 100%; padding: 14px; margin: 10px 0; border: 1.5px solid #eee; border-radius: 10px; box-sizing: border-box; font-size: 1rem; outline: none; transition: 0.3s; }
         input:focus { border-color: var(--primary); }
         
-        /* Buttons */
         .confirm-btn { background: #25D366; color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 20px; }
-        .upi-btn { background: var(--upi-blue); color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .upi-btn:hover { background: #075a94; }
+        
+        .upi-btn { background: var(--upi-blue); color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 10px; }
+        .upi-btn:hover { background: #004485; }
         
         .payment-choice { text-align: center; margin: 20px 0; font-weight: 600; color: #666; font-size: 0.9rem; position: relative; }
         .payment-choice::before, .payment-choice::after { content: ""; position: absolute; top: 50%; width: 40%; height: 1px; background: #eee; }
         .payment-choice::before { left: 0; }
         .payment-choice::after { right: 0; }
+        
+        .upi-id-badge { text-align: center; font-size: 0.8rem; color: #888; margin-top: 8px; }
+        .upi-id-badge span { color: var(--primary); font-weight: bold; cursor: pointer; text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -146,7 +149,6 @@
     <div class="checkout-box">
         <div class="back-link" onclick="closeCheckout()">← BACK TO BROWSE</div>
         <h2 style="margin-bottom: 10px;">Review Order</h2>
-        <p style="color: #666; margin-bottom: 30px;">Choose a method to place your order.</p>
         
         <div class="summary-card">
             <div style="font-weight: bold; color: var(--primary); font-size: 1.2rem;" id="disp-item"></div>
@@ -162,84 +164,4 @@
                 <span style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">₹<span id="total-val">0</span></span>
             </div>
 
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-
-            <input type="text" id="name" placeholder="Your Full Name" required>
-            <textarea id="address" rows="3" placeholder="Delivery Address (Area, Landmark, City)" required></textarea>
-            
-            <button type="submit" class="confirm-btn">Confirm Order (WhatsApp)</button>
-            
-            <div class="payment-choice">OR</div>
-            
-            <button type="button" class="upi-btn" onclick="payViaUPI()">
-                Pay ₹<span id="upi-total">0</span> via UPI
-            </button>
-            <p style="text-align: center; font-size: 0.75rem; color: #888; margin-top: 10px;">*Note: Please share payment screenshot on WhatsApp after paying.</p>
-        </form>
-    </div>
-</div>
-
-<script>
-    let currentPrice = 0, currentItem = "", currentUnit = "";
-
-    function openCheckout(name, price, unit) {
-        currentItem = name; 
-        currentPrice = price; 
-        currentUnit = unit;
-        
-        document.getElementById('disp-item').innerText = name;
-        document.getElementById('disp-price').innerText = price;
-        document.getElementById('disp-unit').innerText = unit;
-        
-        updateTotal();
-        
-        document.getElementById('main-site').style.display = 'none';
-        document.getElementById('checkout-page').style.display = 'block';
-        window.scrollTo(0,0);
-    }
-
-    function closeCheckout() {
-        document.getElementById('main-site').style.display = 'block';
-        document.getElementById('checkout-page').style.display = 'none';
-    }
-
-    function updateTotal() {
-        const qty = document.getElementById('qty').value;
-        const total = qty * currentPrice;
-        document.getElementById('total-val').innerText = total;
-        document.getElementById('upi-total').innerText = total;
-    }
-
-    function payViaUPI() {
-        const name = document.getElementById('name').value;
-        const total = document.getElementById('total-val').innerText;
-        
-        if (!name) {
-            alert("Please enter your name first.");
-            return;
-        }
-
-        const upiId = "7338242455@ybl";
-        const merchantName = "Arav Poultry Farms";
-        const note = encodeURIComponent(`Order for ${currentItem} - ${name}`);
-        
-        // UPI deep link
-        const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(merchantName)}&am=${total}&tn=${note}&cu=INR`;
-        
-        window.location.href = upiUrl;
-    }
-
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const qty = document.getElementById('qty').value;
-        const total = document.getElementById('total-val').innerText;
-        const name = document.getElementById('name').value;
-        const addr = document.getElementById('address').value;
-        
-        const msg = `*NEW ORDER - ARAV POULTRY FARMS*%0A--------------------------%0A*Item:* ${currentItem}%0A*Qty:* ${qty} ${currentUnit}%0A*Total:* ₹${total}%0A--------------------------%0A*Customer:* ${name}%0A*Address:* ${addr}`;
-        
-        window.open(`https://wa.me/917338242455?text=${msg}`, '_blank');
-    });
-</script>
-</body>
-</html>
+            <hr style="border: 0; border
