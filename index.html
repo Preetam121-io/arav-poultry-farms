@@ -75,7 +75,6 @@
         <div class="logo">Arav Poultry Farms</div>
         <div class="nav-links">
             <a href="#products">Products</a>
-            <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -86,22 +85,10 @@
     </section>
 
     <section class="trust-bar">
-        <div class="trust-item">
-            <h4>🌿 100% Organic Feed</h4>
-            <p>Raised on high-quality nutrition.</p>
-        </div>
-        <div class="trust-item">
-            <h4>🚚 Same Day Dispatch</h4>
-            <p>Freshest eggs in the market.</p>
-        </div>
-        <div class="trust-item">
-            <h4>🛡️ Bio-Secure Farm</h4>
-            <p>Strict hygiene standards followed.</p>
-        </div>
-        <div class="trust-item">
-            <h4>📍 City Coverage</h4>
-            <p>Chennai | Bangalore | Hyderabad</p>
-        </div>
+        <div class="trust-item"><h4>🌿 Organic Feed</h4><p>High-quality nutrition.</p></div>
+        <div class="trust-item"><h4>🚚 Fast Dispatch</h4><p>Freshness guaranteed.</p></div>
+        <div class="trust-item"><h4>🛡️ Bio-Secure</h4><p>Strict hygiene.</p></div>
+        <div class="trust-item"><h4>📍 South India</h4><p>Chennai | Bangalore | Hyderabad</p></div>
     </section>
 
     <div class="section-head" id="products">
@@ -115,7 +102,6 @@
                 <div class="img-box"><img src="https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
                 <div class="p-info">
                     <h3>White Eggs (BV 300)</h3>
-                    <p>Clean, protein-rich white eggs from our BV 300 layers. Collected daily.</p>
                     <div class="price">₹70 <small>/ Dozen</small></div>
                     <button class="btn btn-order" onclick="openOrder('BV 300 White Eggs', 70, 'Dozen')">Order Now</button>
                 </div>
@@ -124,7 +110,6 @@
                 <div class="img-box"><img src="https://images.pexels.com/photos/1405930/pexels-photo-1405930.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
                 <div class="p-info">
                     <h3>Live Layer (BV 300)</h3>
-                    <p>Healthy, infection-free white layer birds. Optimized for health profile.</p>
                     <div class="price">₹250 <small>/ KG</small></div>
                     <button class="btn btn-order" onclick="openOrder('BV 300 Layer Chicken', 250, 'KG')">Order Now</button>
                 </div>
@@ -133,7 +118,6 @@
                 <div class="img-box"><img src="https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
                 <div class="p-info">
                     <h3>Fresh Broiler Chicken</h3>
-                    <p>Tender and farm-processed meat. Cleaned and packed with hygiene.</p>
                     <div class="price">₹210 <small>/ KG</small></div>
                     <button class="btn btn-order" onclick="openOrder('Fresh Broiler Chicken', 210, 'KG')">Order Now</button>
                 </div>
@@ -143,53 +127,32 @@
 
     <footer id="contact">
         <div class="footer-grid">
-            <div>
-                <div class="footer-logo">ARAV POULTRY</div>
-                <p style="font-size: 0.9rem; opacity: 0.7;">Leading supplier of BV 300 breed poultry products in South India. Dedicated to quality and freshness.</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Contact Us</h4>
-                <p style="font-size: 0.9rem; margin-bottom: 10px;">📞 +91 7338242455</p>
-                <p style="font-size: 0.9rem;">✉️ preetampwar137@gmail.com</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Locations Served</h4>
-                <p style="font-size: 0.9rem;">Chennai, Tamil Nadu<br>Bangalore, Karnataka<br>Hyderabad, Telangana</p>
-            </div>
+            <div><div class="footer-logo">ARAV POULTRY</div><p>Direct farm-fresh quality.</p></div>
+            <div><h4>Contact</h4><p>📞 +91 7338242455<br>✉️ preetampwar137@gmail.com</p></div>
         </div>
-        <div style="text-align: center; margin-top: 50px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid #333; padding-top: 20px;">
-            © 2026 Arav Poultry Farms. All rights reserved.
-        </div>
+        <div style="text-align: center; margin-top: 50px; font-size: 0.8rem; opacity: 0.5;">© 2026 Arav Poultry Farms</div>
     </footer>
 </div>
 
 <div id="checkout">
     <div class="box">
-        <span class="back" onclick="closeOrder()">← BACK TO PRODUCTS</span>
-        <h2 style="margin-bottom: 5px;">Confirm Order</h2>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">Provide your details for delivery.</p>
-        
+        <span class="back" onclick="closeOrder()">← BACK TO BROWSE</span>
+        <h2>Confirm Order</h2>
         <div class="summary">
             <div id="sel-item" style="font-weight: bold; font-size: 1.2rem; color: var(--primary);"></div>
-            <div style="margin-top: 5px;">₹<span id="sel-rate"></span> per <span id="sel-unit"></span></div>
+            <div>₹<span id="sel-rate"></span> / <span id="sel-unit"></span></div>
         </div>
-
-        <label style="font-weight: 600;">Quantity</label>
+        <label>Quantity</label>
         <input type="number" id="order-qty" value="1" min="1" oninput="recalc()">
-        
-        <div style="display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 800; margin: 25px 0;">
-            <span>Total Payable:</span>
+        <div style="display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 800; margin: 20px 0;">
+            <span>Total:</span>
             <span style="color: var(--primary);">₹<span id="order-total">0</span></span>
         </div>
-
-        <input type="text" id="user-name" placeholder="Your Full Name">
-        <textarea id="user-addr" rows="3" placeholder="Full Delivery Address (Area, Landmark, City)"></textarea>
-        
+        <input type="text" id="user-name" placeholder="Your Name">
+        <textarea id="user-addr" rows="2" placeholder="Full Address"></textarea>
         <button class="btn upi-btn" onclick="handleUPI()">Pay ₹<span id="upi-btn-val"></span> via UPI App</button>
-        <div style="text-align: center; margin: 15px 0; color: #888; font-size: 0.8rem; font-weight: bold;">OR</div>
-        <button class="btn wa-btn" onclick="handleWA()">Confirm Order on WhatsApp</button>
-        
-        <p style="text-align: center; color: #888; font-size: 0.7rem; margin-top: 25px;">UPI ID: 7338242455@ybl</p>
+        <div style="text-align: center; margin: 10px 0; font-weight: bold; color: #888;">OR</div>
+        <button class="btn wa-btn" onclick="handleWA()">Confirm on WhatsApp</button>
     </div>
 </div>
 
@@ -222,27 +185,37 @@
     function validate() {
         const n = document.getElementById('user-name').value;
         const a = document.getElementById('user-addr').value;
-        if(!n || !a) {
-            alert("Please provide both Name and Delivery Address.");
-            return false;
-        }
+        if(!n || !a) { alert("Please enter Name and Address."); return false; }
         return { name: n, addr: a };
     }
 
     function handleUPI() {
-        const user = validate();
-        if(!user) return;
+        const user = validate(); if(!user) return;
         const total = document.getElementById('order-total').innerText;
-        const url = `upi://pay?pa=7338242455@ybl&pn=Arav%20Poultry&am=${total}&tn=Order%20by%20${encodeURIComponent(user.name)}&cu=INR`;
-        window.location.href = url;
+        const upiId = "7338242455@ybl";
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = `upi://pay?pa=${upiId}&pn=Arav%20Poultry&am=${total}&tn=Order%20by%20${encodeURIComponent(user.name)}&cu=INR`;
+        } else {
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${upiId}%26pn=Arav%20Poultry%26am=${total}%26cu=INR`;
+            const overlay = document.createElement('div');
+            overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:3000; display:flex; align-items:center; justify-content:center;";
+            overlay.innerHTML = `<div style="background:white; padding:30px; border-radius:15px; text-align:center; max-width:300px;">
+                <h3 style="margin-top:0">Scan to Pay ₹${total}</h3>
+                <img src="${qrUrl}" style="width:200px; margin:15px 0;">
+                <p style="font-size:14px; color:#666">Open GPay/PhonePe to Scan</p>
+                <button onclick="this.parentElement.parentElement.remove()" style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; width:100%; font-weight:bold;">Close</button>
+            </div>`;
+            document.body.appendChild(overlay);
+        }
     }
 
     function handleWA() {
-        const user = validate();
-        if(!user) return;
+        const user = validate(); if(!user) return;
         const q = document.getElementById('order-qty').value;
         const t = document.getElementById('order-total').innerText;
-        const msg = `*NEW ORDER - ARAV POULTRY*%0A*Item:* ${p_name}%0A*Qty:* ${q} ${p_unit}%0A*Total:* ₹${t}%0A------------------%0A*Name:* ${user.name}%0A*Address:* ${user.addr}`;
+        const msg = `*NEW ORDER*%0A*Item:* ${p_name}%0A*Qty:* ${q}%0A*Total:* ₹${t}%0A*Name:* ${user.name}%0A*Address:* ${user.addr}`;
         window.open(`https://wa.me/917338242455?text=${msg}`, '_blank');
     }
 </script>
