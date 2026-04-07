@@ -1,435 +1,967 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arav Poultry Farms | Fresh BV 300 Breed</title>
-    <style>
-        :root {
-            --primary: #1b4332; 
-            --accent: #ffb703; 
-            --bg: #f8f9fa;
-            --text: #212529;
-            --upi: #0055a4;
-            --wa: #25D366;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arav Poultry Farms – Farm Fresh Eggs | Karnataka</title>
+<meta name="description" content="Arav Poultry Farms – Premium quality farm fresh eggs and poultry supply in Karnataka. Bulk wholesale & retail delivery available.">
 
-        body { font-family: 'Inter', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); scroll-behavior: smooth; }
-        
-        /* Navigation */
-        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top:0; z-index:100;}
-        .logo { font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 12px; font-size: 1.3rem; }
-        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; margin-left: 20px; font-size: 0.9rem; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        /* Hero Section */
-        .hero { padding: 80px 10%; background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; color: white; text-align: center; }
-        .hero h1 { font-size: 3rem; margin: 0; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; color: var(--accent); margin-top: 15px; }
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Trust Section */
-        .trust-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px 10%; background: white; text-align: center; }
-        .trust-item h4 { margin: 10px 0 5px; color: var(--primary); }
-        .trust-item p { font-size: 0.85rem; color: #666; margin: 0; }
+  :root {
+    --green:  #0b3d2e;
+    --green2: #145c43;
+    --green3: #1e7a59;
+    --gold:   #f5c542;
+    --gold2:  #e8b830;
+    --white:  #ffffff;
+    --cream:  #fdf8ef;
+    --grey:   #f4f4f4;
+    --text:   #1a1a1a;
+    --muted:  #6b7280;
+    --radius: 18px;
+    --shadow: 0 20px 60px rgba(0,0,0,.12);
+  }
 
-        /* Products Header */
-        .section-head { text-align: center; padding-top: 50px; }
-        .section-head h2 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
-        .underline { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+  html { scroll-behavior: smooth; }
 
-        /* Product Grid */
-        .section { padding: 40px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .img-box { height: 250px; background: #eee; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .p-info { padding: 25px; }
-        .p-info h3 { margin: 0; color: var(--primary); }
-        .p-info p { font-size: 0.9rem; color: #666; margin: 10px 0; }
-        .price { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
-        
-        /* Buttons */
-        .btn { width: 100%; padding: 16px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.2s; }
-        .btn-order { background: var(--primary); color: white; }
-        .btn-order:hover { background: #2d6a4f; }
-        
-        /* Checkout Overlay */
-        #checkout { display: none; position: fixed; inset: 0; background: white; z-index: 1000; overflow-y: auto; padding: 20px; }
-        .box { max-width: 450px; margin: 0 auto; padding-bottom: 50px; }
-        .summary { background: #f0f7f4; padding: 20px; border-radius: 12px; border-left: 6px solid var(--primary); margin: 20px 0; }
-        
-        input, textarea { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 1rem; }
-        .upi-btn { background: var(--upi); color: white; margin-top: 10px; }
-        .wa-btn { background: var(--wa); color: white; margin-top: 10px; }
-        .back { color: var(--primary); cursor: pointer; font-weight: bold; margin-bottom: 30px; display: block; }
-        
-        footer { background: #1a1a1a; color: white; padding: 60px 10%; margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
-    </style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--green); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6%; height: 72px;
+    background: rgba(11,61,46,.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(245,197,66,.15);
+    transition: background .3s;
+  }
+  nav.scrolled { background: rgba(11,61,46,.98); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 42px; height: 42px; background: var(--gold);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); line-height: 1.1; }
+  .nav-logo-text span { display: block; font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 300; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold); color: var(--green); font-weight: 700;
+    padding: 10px 24px; border-radius: 50px; text-decoration: none; font-size: 14px;
+    transition: transform .2s, box-shadow .2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,197,66,.4); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: .3s; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(160deg, rgba(11,61,46,.85) 0%, rgba(11,61,46,.5) 60%, rgba(0,0,0,.3) 100%),
+      url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    display: flex; align-items: center;
+    padding: 120px 6% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+    background: linear-gradient(transparent, var(--cream));
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,197,66,.15); border: 1px solid rgba(245,197,66,.4);
+    padding: 8px 18px; border-radius: 50px; color: var(--gold);
+    font-size: 13px; font-weight: 500; margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+    animation: fadeDown .8s ease both;
+  }
+  .hero-badge i { font-size: 14px; }
+
+  .hero-content { max-width: 680px; animation: fadeUp .9s ease .1s both; }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 76px);
+    color: var(--white); line-height: 1.1; margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+
+  .hero p {
+    font-size: clamp(16px, 2vw, 19px); color: rgba(255,255,255,.82);
+    line-height: 1.8; margin-bottom: 40px; font-weight: 300; max-width: 540px;
+  }
+
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--gold); color: var(--green); font-weight: 700;
+    padding: 16px 36px; border-radius: 50px; text-decoration: none; font-size: 15px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 8px 32px rgba(245,197,66,.35);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,197,66,.5); }
+
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,.5); color: white; font-weight: 600;
+    padding: 14px 34px; border-radius: 50px; text-decoration: none; font-size: 15px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s; backdrop-filter: blur(10px);
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,.1); }
+
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 60px;
+    animation: fadeUp .9s ease .3s both;
+  }
+  .stat { text-align: left; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--gold); font-weight: 700; line-height: 1; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* ─── TRUST STRIP ─── */
+  .trust-strip {
+    background: var(--green);
+    padding: 22px 6%;
+    display: flex; align-items: center; justify-content: center; gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,.85); font-size: 14px; font-weight: 500;
+  }
+  .trust-item i { color: var(--gold); font-size: 18px; }
+  .trust-divider { width: 1px; height: 24px; background: rgba(255,255,255,.2); }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 100px 6%; }
+
+  .section-tag {
+    display: inline-block; background: rgba(11,61,46,.08); color: var(--green);
+    font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 50px; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 50px); color: var(--green); line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-sub { font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 560px; }
+
+  .section-header { margin-bottom: 64px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-sub { margin: 0 auto; }
+
+  /* ─── WHY US ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+  .why-card {
+    background: white; padding: 40px 32px; border-radius: var(--radius);
+    box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    border: 1px solid rgba(11,61,46,.07);
+    transition: transform .3s, box-shadow .3s;
+    position: relative; overflow: hidden;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s;
+  }
+  .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+  .why-card:hover::before { transform: scaleX(1); }
+
+  .why-icon {
+    width: 64px; height: 64px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--green), var(--green2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; margin-bottom: 24px;
+  }
+  .why-card h3 { font-size: 20px; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+  .why-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+  /* ─── PRODUCTS ─── */
+  .products-section { background: var(--green); }
+  .products-section .section-tag { background: rgba(245,197,66,.15); color: var(--gold); }
+  .products-section .section-title { color: white; }
+  .products-section .section-sub { color: rgba(255,255,255,.65); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .product-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+    backdrop-filter: blur(10px);
+  }
+  .product-card:hover { transform: translateY(-6px); border-color: rgba(245,197,66,.5); }
+
+  .product-img {
+    height: 220px; overflow: hidden; position: relative;
+  }
+  .product-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s;
+  }
+  .product-card:hover .product-img img { transform: scale(1.06); }
+  .product-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--gold); color: var(--green);
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    padding: 4px 12px; border-radius: 50px; text-transform: uppercase;
+  }
+  .product-body { padding: 28px; }
+  .product-body h3 { font-size: 22px; font-weight: 700; color: white; margin-bottom: 10px; }
+  .product-body p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 20px; }
+  .product-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .product-features li { font-size: 13px; color: rgba(255,255,255,.75); display: flex; align-items: center; gap: 8px; }
+  .product-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+  /* ─── STORY ─── */
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .story-visual { position: relative; }
+  .story-main-img {
+    width: 100%; height: 480px; object-fit: cover;
+    border-radius: 24px; box-shadow: var(--shadow);
+  }
+  .story-inset {
+    position: absolute; bottom: -24px; right: -24px;
+    width: 180px; height: 180px; border-radius: 16px; overflow: hidden;
+    border: 4px solid white; box-shadow: var(--shadow);
+  }
+  .story-inset img { width: 100%; height: 100%; object-fit: cover; }
+  .story-badge-float {
+    position: absolute; top: -20px; left: -20px;
+    background: var(--gold); color: var(--green);
+    width: 100px; height: 100px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: 800; text-align: center; box-shadow: 0 8px 24px rgba(245,197,66,.4);
+    font-size: 13px; line-height: 1.3;
+  }
+  .story-badge-float strong { font-size: 26px; display: block; }
+
+  .story-points { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+  .story-point { display: flex; gap: 16px; align-items: flex-start; }
+  .story-point-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0; margin-top: 6px;
+  }
+  .story-point h4 { font-size: 16px; font-weight: 600; color: var(--green); margin-bottom: 4px; }
+  .story-point p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── NUMBERS ─── */
+  .numbers-section {
+    background: linear-gradient(135deg, var(--green) 0%, #0d4f38 100%);
+    padding: 80px 6%;
+  }
+  .numbers-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;
+  }
+  .number-item {}
+  .number-val {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 64px); color: var(--gold); line-height: 1;
+    font-weight: 800;
+  }
+  .number-label { font-size: 14px; color: rgba(255,255,255,.7); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .number-divider { width: 1px; background: rgba(255,255,255,.1); }
+
+  /* ─── REVIEWS ─── */
+  .reviews-section { background: white; }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+  }
+  .review-card {
+    background: var(--cream); border-radius: var(--radius);
+    padding: 32px; border: 1px solid rgba(11,61,46,.08);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .review-stars { color: var(--gold); font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
+  .review-text { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--green3));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .review-name { font-weight: 600; font-size: 15px; color: var(--green); }
+  .review-role { font-size: 12px; color: var(--muted); }
+
+  /* ─── GALLERY ─── */
+  .gallery-section { background: var(--grey); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 16px;
+    border-radius: 24px; overflow: hidden;
+  }
+  .gallery-item { overflow: hidden; position: relative; cursor: pointer; }
+  .gallery-item:first-child { grid-row: span 2; }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s;
+  }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-item::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(11,61,46,0);
+    transition: background .3s;
+  }
+  .gallery-item:hover::after { background: rgba(11,61,46,.25); }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--green) 0%, #0a2e22 100%);
+    text-align: center; padding: 100px 6%;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,197,66,.12) 0%, transparent 70%);
+  }
+  .cta-section::after {
+    content: '';
+    position: absolute; bottom: -100px; left: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,197,66,.08) 0%, transparent 70%);
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 58px); color: white; margin-bottom: 20px;
+  }
+  .cta-section h2 span { color: var(--gold); }
+  .cta-section p { font-size: 18px; color: rgba(255,255,255,.7); margin-bottom: 48px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+  .btn-whatsapp {
+    background: #25D366; color: white; font-weight: 700;
+    padding: 18px 40px; border-radius: 50px; text-decoration: none; font-size: 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 8px 32px rgba(37,211,102,.35);
+  }
+  .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,.5); }
+
+  .btn-call {
+    background: var(--gold); color: var(--green); font-weight: 700;
+    padding: 18px 40px; border-radius: 50px; text-decoration: none; font-size: 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 8px 32px rgba(245,197,66,.35);
+  }
+  .btn-call:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,197,66,.5); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060f0b; color: rgba(255,255,255,.7);
+    padding: 60px 6% 30px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px;
+  }
+  .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 300px; }
+  .footer-col h4 { color: white; font-size: 15px; font-weight: 600; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-contact { display: flex; flex-direction: column; gap: 12px; }
+  .footer-contact-item { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .footer-contact-item i { color: var(--gold); width: 18px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;
+    font-size: 13px; gap: 16px;
+  }
+  .footer-bottom-links { display: flex; gap: 24px; }
+  .footer-bottom-links a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+  .footer-bottom-links a:hover { color: var(--gold); }
+
+  /* ─── FLOATING WHATSAPP ─── */
+  .float-wa {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366; color: white; font-size: 28px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 32px rgba(37,211,102,.5); text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    animation: pulse 2s infinite;
+  }
+  .float-wa:hover { transform: scale(1.1); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+    50%       { box-shadow: 0 8px 48px rgba(37,211,102,.8); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-cta { display: none; }
+
+    .hero { padding: 110px 5% 60px; }
+    .hero-stats { gap: 28px; flex-wrap: wrap; }
+
+    .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    .story-inset { display: none; }
+    .story-badge-float { width: 80px; height: 80px; font-size: 11px; top: -14px; left: -14px; }
+    .story-badge-float strong { font-size: 20px; }
+
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    .number-divider { display: none; }
+
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: span 1; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+
+    .trust-strip { gap: 24px; }
+    .trust-divider { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .gallery-grid { grid-template-columns: 1fr; height: auto; }
+    .gallery-item { height: 200px; }
+    .gallery-item:first-child { grid-row: span 1; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: fit-content; }
+  }
+</style>
 </head>
 <body>
 
-<div id="main">
-    <nav>
-        <div class="logo">🥚 Arav Poultry Farms</div>
-        <div class="nav-links">
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+<!-- ─── FLOATING WHATSAPP ─── -->
+<a class="float-wa" href="https://wa.me/917338242455?text=Hi%2C%20I%27m%20interested%20in%20Arav%20Poultry%20Farms%20eggs%20%26%20poultry" target="_blank" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-    <section class="hero">
-        <h1>Farm Fresh BV 300 <br>Eggs & Poultry</h1>
-        <p>Direct from Farm to your Doorstep</p>
-    </section>
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">🥚</div>
+    <div class="nav-logo-text">Arav Poultry Farms <span>Karnataka, India</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/917338242455?text=Hi%2C%20I%20want%20to%20order%20eggs%20from%20Arav%20Poultry%20Farms" target="_blank">
+    <i class="fab fa-whatsapp"></i> Order Now
+  </a>
+  <div class="hamburger" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-    <section class="trust-bar">
-        <div class="trust-item">
-            <h4>🌿 100% Organic Feed</h4>
-            <p>Raised on high-quality nutrition.</p>
-        </div>
-        <div class="trust-item">
-            <h4>🚚 Same Day Dispatch</h4>
-            <p>Freshest eggs in the market.</p>
-        </div>
-        <div class="trust-item">
-            <h4>🛡️ Bio-Secure Farm</h4>
-            <p>Strict hygiene standards followed.</p>
-        </div>
-        <div class="trust-item">
-            <h4>📍 City Coverage</h4>
-            <p>Chennai | Bangalore | Hyderabad</p>
-        </div>
-    </section>
-
-    <div class="section-head" id="products">
-        <h2>Our Fresh Products</h2>
-        <div class="underline"></div>
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div>
+    <div class="hero-badge"><i class="fas fa-leaf"></i> 100% Farm Fresh • Karnataka</div>
+    <div class="hero-content">
+      <h1>Premium Quality<br>Farm Fresh <em>Eggs</em> &<br>Poultry Supply</h1>
+      <p>Directly from our farm to your doorstep — hygienic, nutritious, and delivered fresh every single day across Karnataka.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://wa.me/917338242455?text=Hi%2C%20I%20want%20to%20order%20from%20Arav%20Poultry%20Farms" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+        <a class="btn-outline" href="tel:+917338242455">
+          <i class="fas fa-phone-alt"></i> Call Us Now
+        </a>
+      </div>
     </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Daily</div>
+        <div class="stat-label">Fresh Delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="section">
-        <div class="grid">
-            <div class="card">
-                <div class="img-box"><img src="https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
-                <div class="p-info">
-                    <h3>White Eggs (BV 300)</h3>
-                                <p>Clean, protein-rich white eggs from our BV 300 layers. Collected daily.</p>
-                                <p><strong>₹70 / Dozen</strong></p>
-                                <ul>
-                                  <li>Daily fresh collection</li>
-                                  <li>Graded and neatly packed</li>
-                                  <li>Best for hotels, bakeries, retailers</li>
-                                </ul>
-                                <a href="https://wa.me/917338242455?text=Hi%2C%20I%20want%20to%20order%20White%20Eggs%20(BV%20300).%20Quantity%20in%20dozens%3A%20___" class="btn btn-order">Order on WhatsApp</a>
-                            </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="https://images.pexels.com/photos/1405930/pexels-photo-1405930.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
-                <div class="p-info">
-                    <h3>Live Layer (BV 300)</h3>
-                                <p>Healthy, infection-free white layer birds. Optimized for health profile.</p>
-                                <p><strong>₹250 / KG</strong></p>
-                                <ul>
-                                  <li>BV 300 high-performance layer birds</li>
-                                  <li>Ideal for farms and resellers</li>
-                                  <li>Bulk orders accepted</li>
-                                </ul>
-                                <a href="https://wa.me/917338242455?text=Hi%2C%20I%20want%20to%20order%20Live%20Layer%20(BV%20300).%20Quantity%20in%20kg%3A%20___" class="btn btn-order">Order on WhatsApp</a>
-                            </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
-                <div class="p-info">
-                    <h3>Fresh Broiler Chicken</h3>
-                                <p>Tender and farm-processed meat. Cleaned and packed with hygiene.</p>
-                                <p><strong>₹210 / KG</strong></p>
-                                <ul>
-                                  <li>Freshly processed broiler chicken</li>
-                                  <li>Cleaned and packed hygienically</li>
-                                  <li>Suitable for hotels, caterers & homes</li>
-                                </ul>
-                                <a href="https://wa.me/917338242455?text=Hi%2C%20I%20want%20to%20order%20Fresh%20Broiler%20Chicken.%20Quantity%20in%20kg%3A%20___" class="btn btn-order">Order on WhatsApp</a>
-                            </div>
-            </div>
-        </div>
-    </section>
-
-        <section id="why-bv300" class="section">
-        <div class="section-head">
-            <h2>Why BV 300?</h2>
-            <div class="underline"></div>
-        </div>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">BV 300 is a high-performance layer breed known for consistent egg production and strong shell quality.</p>
-        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <ul style="list-style: none; padding: 0;">
-                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">✅ High egg laying capacity with uniform size</li>
-                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">✅ Strong shells and good internal quality</li>
-                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">✅ Efficient feed conversion and healthy birds</li>
-                <li style="padding: 10px 0;">✅ Trusted by commercial farms and resellers</li>
-            </ul>
-        </div>
-    </section>
-
-        <!-- About Us Section -->
-    <section id="about" class="section" style="background: #f8f9fa;">
-        <div class="section-head">
-            <h2>About Arav Poultry Farms</h2>
-            <div class="underline"></div>
-        </div>
-        <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-            <p style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 30px;">
-                Established with a vision to provide the freshest and highest quality poultry products to South India, Arav Poultry Farms has been serving hotels, bakeries, restaurants, and retailers for years. Our state-of-the-art farm facilities in Karnataka ensure that every egg and bird meets strict quality and hygiene standards.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="text-align: center; padding: 20px;">
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">🏭 5+ Years</h3>
-                    <p style="color: #666;">Of trusted service in poultry industry</p>
-                </div>
-                <div style="text-align: center; padding: 20px;">
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">🐓 10,000+ Birds</h3>
-                    <p style="color: #666;">Active layer flock capacity</p>
-                </div>
-                <div style="text-align: center; padding: 20px;">
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">🚚 100+ Deliveries</h3>
-                    <p style="color: #666;">Made monthly across 3 cities</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section">
-        <div class="section-head">
-            <h2>Frequently Asked Questions</h2>
-            <div class="underline"></div>
-        </div>
-        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-            <div style="margin-bottom: 25px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <h3 style="color: #1b4332; margin-bottom: 10px; font-size: 1.1rem;">What is the minimum order quantity?</h3>
-                <p style="color: #666; line-height: 1.6;">For eggs, we accept orders starting from 10 trays (300 eggs). For live layers and broiler chicken, the minimum order is 50 kg. We offer special pricing for bulk orders above 500 eggs or 100 kg.</p>
-            </div>
-            <div style="margin-bottom: 25px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <h3 style="color: #1b4332; margin-bottom: 10px; font-size: 1.1rem;">Do you deliver to my area?</h3>
-                <p style="color: #666; line-height: 1.6;">We currently serve Chennai, Bangalore, and Hyderabad with same-day or next-day delivery depending on order timing. Contact us to confirm delivery availability in your specific locality.</p>
-            </div>
-            <div style="margin-bottom: 25px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <h3 style="color: #1b4332; margin-bottom: 10px; font-size: 1.1rem;">How fresh are the eggs?</h3>
-                <p style="color: #666; line-height: 1.6;">All eggs are collected daily from our farm and dispatched within 24 hours. We guarantee maximum freshness with proper grading and packaging to maintain quality during transit.</p>
-            </div>
-            <div style="margin-bottom: 25px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <h3 style="color: #1b4332; margin-bottom: 10px; font-size: 1.1rem;">What payment methods do you accept?</h3>
-                <p style="color: #666; line-height: 1.6;">We accept UPI, bank transfer, and cash on delivery for verified customers. For regular bulk orders, we offer credit terms with advance payment options.</p>
-            </div>
-            <div style="margin-bottom: 25px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <h3 style="color: #1b4332; margin-bottom: 10px; font-size: 1.1rem;">Are your birds and eggs certified?</h3>
-                <p style="color: #666; line-height: 1.6;">Yes, our farm follows all bio-security protocols and hygiene standards. Our BV 300 breed is sourced from certified hatcheries, and we maintain complete health records for all our flocks.</p>
-            </div>
-            <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <h3 style="color: #1b4332; margin-bottom: 10px; font-size: 1.1rem;">Can I visit your farm?</h3>
-                <p style="color: #666; line-height: 1.6;">We welcome farm visits by appointment for serious bulk buyers and partners. Please contact us at least 48 hours in advance to schedule a visit to our Karnataka facility.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How to Order Section -->
-    <section class="section" style="background: #f8f9fa;">
-        <div class="section-head">
-            <h2>How to Order</h2>
-            <div class="underline"></div>
-        </div>
-        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">📞</div>
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">Step 1: Contact Us</h3>
-                    <p style="color: #666; font-size: 0.95rem;">Call or WhatsApp us with your requirement and delivery location</p>
-                </div>
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">📋</div>
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">Step 2: Get Quote</h3>
-                    <p style="color: #666; font-size: 0.95rem;">Receive instant pricing based on quantity and delivery schedule</p>
-                </div>
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">💳</div>
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">Step 3: Confirm</h3>
-                    <p style="color: #666; font-size: 0.95rem;">Confirm order and make payment via UPI or bank transfer</p>
-                </div>
-                <div style="text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">🚚</div>
-                    <h3 style="color: #1b4332; margin-bottom: 10px;">Step 4: Delivery</h3>
-                    <p style="color: #666; font-size: 0.95rem;">Your order arrives fresh at your doorstep on scheduled time</p>
-                </div>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%); color: white; padding: 40px; border-radius: 15px; margin-top: 50px; text-align: center;">
-                <h3 style="margin-bottom: 20px; font-size: 1.5rem;">Bulk Order Benefits</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
-                    <div>
-                        <h4 style="color: #ffb703; margin-bottom: 8px;">★ Volume Discounts</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Save up to 15% on orders above 1000 eggs</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #ffb703; margin-bottom: 8px;">★ Free Delivery</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">No delivery charges on orders above ₹5000</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #ffb703; margin-bottom: 8px;">★ Priority Support</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Dedicated account manager for regular clients</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #ffb703; margin-bottom: 8px;">★ Flexible Payment</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Credit terms available for verified bulk buyers</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section">
-        <div class="section-head">
-            <h2>What Our Customers Say</h2>
-            <div class="underline"></div>
-        </div>
-        <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative;">
-                    <div style="font-size: 3rem; color: #ffb703; opacity: 0.3; position: absolute; top: 10px; left: 20px;">“</div>
-                    <p style="color: #666; font-style: italic; line-height: 1.7; margin: 30px 0 20px;">We've been ordering eggs from Arav Poultry for our bakery for over 2 years. The quality is consistently excellent and delivery is always on time. Highly recommended for bulk buyers!</p>
-                    <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                        <h4 style="color: #1b4332; margin: 0; font-size: 1rem;">Ramesh Kumar</h4>
-                        <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0;">Owner, Sweet Palace Bakery, Bangalore</p>
-                    </div>
-                </div>
-                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative;">
-                    <div style="font-size: 3rem; color: #ffb703; opacity: 0.3; position: absolute; top: 10px; left: 20px;">“</div>
-                    <p style="color: #666; font-style: italic; line-height: 1.7; margin: 30px 0 20px;">The BV 300 layers we purchased are performing exceptionally well. Great health, consistent production, and excellent support from the Arav team. Will definitely reorder.</p>
-                    <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                        <h4 style="color: #1b4332; margin: 0; font-size: 1rem;">Priya Sharma</h4>
-                        <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0;">Farm Manager, Green Valley Poultry, Chennai</p>
-                    </div>
-                </div>
-                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative;">
-                    <div style="font-size: 3rem; color: #ffb703; opacity: 0.3; position: absolute; top: 10px; left: 20px;">“</div>
-                    <p style="color: #666; font-style: italic; line-height: 1.7; margin: 30px 0 20px;">Best quality broiler chicken in Hyderabad! Fresh, properly cleaned, and competitively priced. Our hotel kitchen is very happy with the service and product quality.</p>
-                    <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                        <h4 style="color: #1b4332; margin: 0; font-size: 1rem;">Sanjay Reddy</h4>
-                        <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0;">Head Chef, Grand Meridian Hotel, Hyderabad</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <footer id="contact">
-        <div class="footer-grid">
-            <div>
-                <div class="footer-logo">ARAV POULTRY</div>
-                <p style="font-size: 0.9rem; opacity: 0.7;">Leading supplier of BV 300 breed poultry products in South India. Dedicated to quality and freshness.</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Contact Us</h4>
-                <p style="font-size: 0.9rem; margin-bottom: 10px;">📞 <a href="tel:+917338242455">+91 7338242455</a></p>
-                <p style="font-size: 0.9rem;">✉️ <a href="mailto:preetampwar137@gmail.com">preetampwar137@gmail.com</a></p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Locations Served</h4>
-                <p style="font-size: 0.9rem;">Chennai, Tamil Nadu<br>Bangalore, Karnataka<br>Hyderabad, Telangana</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 50px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid #333; padding-top: 20px;">
-            © 2026 Arav Poultry Farms. All rights reserved.
-        </div>
-    </footer>
+<!-- ─── TRUST STRIP ─── -->
+<div class="trust-strip">
+  <div class="trust-item"><i class="fas fa-shield-alt"></i> Hygiene Certified</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><i class="fas fa-egg"></i> Daily Fresh Collection</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><i class="fas fa-truck"></i> Bulk & Retail Supply</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><i class="fas fa-star"></i> 4.9★ Customer Rating</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Karnataka Based</div>
 </div>
 
-<div id="checkout">
-    <div class="box">
-        <span class="back" onclick="closeOrder()">← BACK TO PRODUCTS</span>
-        <h2 style="margin-bottom: 5px;">Confirm Order</h2>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">Provide your details for delivery.</p>
-        
-        <div class="summary">
-            <div id="sel-item" style="font-weight: bold; font-size: 1.2rem; color: var(--primary);"></div>
-            <div style="margin-top: 5px;">₹<span id="sel-rate"></span> per <span id="sel-unit"></span></div>
-        </div>
-
-        <label style="font-weight: 600;">Quantity</label>
-        <input type="number" id="order-qty" value="1" min="1" oninput="recalc()">
-        
-        <div style="display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 800; margin: 25px 0;">
-            <span>Total Payable:</span>
-            <span style="color: var(--primary);">₹<span id="order-total">0</span></span>
-        </div>
-
-        <input type="text" id="user-name" placeholder="Your Full Name">
-        <textarea id="user-addr" rows="3" placeholder="Full Delivery Address (Area, Landmark, City)"></textarea>
-        
-        <button class="btn upi-btn" onclick="handleUPI()">Pay ₹<span id="upi-btn-val"></span> via UPI App</button>
-        <div style="text-align: center; margin: 15px 0; color: #888; font-size: 0.8rem; font-weight: bold;">OR</div>
-        <button class="btn wa-btn" onclick="handleWA()">Confirm Order on WhatsApp</button>
-        
-        <p style="text-align: center; color: #888; font-size: 0.7rem; margin-top: 25px;">UPI ID: 7338242455@ybl</p>
+<!-- ─── WHY US ─── -->
+<section id="why-us">
+  <div class="section-header center reveal">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-title">The Arav Poultry Farms Difference</h2>
+    <p class="section-sub">We don't just supply eggs — we deliver trust, quality, and freshness that makes your business and family thrive.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🥚</div>
+      <h3>100% Farm Fresh</h3>
+      <p>Eggs collected daily at dawn and dispatched immediately — ensuring peak freshness, rich yolk, and maximum nutrition in every egg.</p>
     </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🏭</div>
+      <h3>Bulk Supply Experts</h3>
+      <p>Hotels, restaurants, wholesalers, and distributors trust us for consistent large-quantity supply without compromise on quality.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🔬</div>
+      <h3>Hygiene Standards</h3>
+      <p>Our farm follows strict bio-security and hygiene protocols — clean housing, proper vaccination, and disease-free birds guaranteed.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">💰</div>
+      <h3>Best Market Pricing</h3>
+      <p>Competitive rates for both retail and wholesale. We eliminate middlemen to give you better prices and better margins.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🚚</div>
+      <h3>Reliable Delivery</h3>
+      <p>On-time delivery, every time. We know your business depends on it — which is why we have zero-tolerance for delays.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🤝</div>
+      <h3>Trusted Partnership</h3>
+      <p>Over a decade of building long-term relationships. When you partner with Arav Farms, you get a partner for life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ─── -->
+<section id="products" class="products-section">
+  <div class="section-header center reveal">
+    <div class="section-tag">Our Products</div>
+    <h2 class="section-title">What We Offer</h2>
+    <p class="section-sub">Premium quality poultry products sourced directly from our controlled farm environment in Karnataka.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?q=80&w=800&auto=format&fit=crop" alt="Brown Table Eggs">
+        <div class="product-badge">Best Seller</div>
+      </div>
+      <div class="product-body">
+        <h3>Brown Table Eggs</h3>
+        <p>Rich in protein and naturally produced. Our brown eggs are loved for their thick shells and deep golden yolk.</p>
+        <ul class="product-features">
+          <li>Daily fresh collection</li>
+          <li>Naturally reared hens</li>
+          <li>Rich in Omega-3 & protein</li>
+          <li>Available in 30 / 90 / 180 pcs trays</li>
+        </ul>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1569288063643-5d29ad9a6c5e?q=80&w=800&auto=format&fit=crop" alt="White Table Eggs">
+        <div class="product-badge">Popular</div>
+      </div>
+      <div class="product-body">
+        <h3>White Table Eggs</h3>
+        <p>Crisp, clean, and perfect for commercial kitchens. High yield white eggs ideal for bakeries and hotels.</p>
+        <ul class="product-features">
+          <li>Uniform size & weight</li>
+          <li>Long shelf life</li>
+          <li>Suitable for bulk orders</li>
+          <li>Competitive wholesale pricing</li>
+        </ul>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=800&auto=format&fit=crop" alt="Poultry Birds">
+        <div class="product-badge">Premium</div>
+      </div>
+      <div class="product-body">
+        <h3>Poultry Birds</h3>
+        <p>Healthy, well-nourished birds raised in spacious and clean farm conditions. Available for farm stocking.</p>
+        <ul class="product-features">
+          <li>Vaccinated & disease-free</li>
+          <li>Optimum weight & health</li>
+          <li>Available in multiple breeds</li>
+          <li>Expert farm consultation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NUMBERS ─── -->
+<div class="numbers-section">
+  <div class="numbers-grid">
+    <div class="number-item reveal">
+      <div class="number-val" data-target="10">0</div>
+      <div class="number-label">Years of Excellence</div>
+    </div>
+    <div class="number-divider"></div>
+    <div class="number-item reveal">
+      <div class="number-val" data-target="500">0</div>
+      <div class="number-label">Satisfied Clients</div>
+    </div>
+    <div class="number-divider"></div>
+    <div class="number-item reveal">
+      <div class="number-val" data-target="50000">0</div>
+      <div class="number-label">Eggs Supplied Daily</div>
+    </div>
+    <div class="number-divider"></div>
+    <div class="number-item reveal">
+      <div class="number-val" data-target="100">0</div>
+      <div class="number-label">% Hygiene Certified</div>
+    </div>
+  </div>
 </div>
+
+<!-- ─── STORY ─── -->
+<section id="story">
+  <div class="story-grid">
+    <div class="story-visual reveal">
+      <img class="story-main-img"
+        src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=900&auto=format&fit=crop"
+        alt="Arav Poultry Farm">
+      <div class="story-badge-float">
+        <strong>10+</strong>Years of Trust
+      </div>
+      <div class="story-inset">
+        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=400&auto=format&fit=crop" alt="Farm fresh eggs">
+      </div>
+    </div>
+    <div class="story-text reveal">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">Built on a Promise of<br>Purity & Freshness</h2>
+      <p class="section-sub">Arav Poultry Farms was founded with a single mission — to bring the purest, most nutritious eggs from our Karnataka farm directly to your table.</p>
+      <div class="story-points">
+        <div class="story-point">
+          <div class="story-point-dot"></div>
+          <div>
+            <h4>Farm-Rooted Values</h4>
+            <p>Every bird is raised with care, clean water, quality feed, and open space — because happy hens lay the best eggs.</p>
+          </div>
+        </div>
+        <div class="story-point">
+          <div class="story-point-dot"></div>
+          <div>
+            <h4>Transparent Operations</h4>
+            <p>We believe in complete transparency. Our farm is open for visits — see our process and trust what you buy.</p>
+          </div>
+        </div>
+        <div class="story-point">
+          <div class="story-point-dot"></div>
+          <div>
+            <h4>Community of Farmers</h4>
+            <p>We support local farming ecosystems and work with neighboring farms to meet growing demand sustainably.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section class="gallery-section">
+  <div class="section-header center reveal" style="margin-bottom: 40px;">
+    <div class="section-tag">Farm Gallery</div>
+    <h2 class="section-title">Inside Arav Poultry Farms</h2>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=800&auto=format&fit=crop" alt="Farm view">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?q=80&w=800&auto=format&fit=crop" alt="Fresh eggs">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=800&auto=format&fit=crop" alt="Poultry birds">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1569288063643-5d29ad9a6c5e?q=80&w=800&auto=format&fit=crop" alt="Egg collection">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop" alt="Delivery">
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section id="reviews" class="reviews-section">
+  <div class="section-header center reveal">
+    <div class="section-tag">Customer Reviews</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-sub">Hundreds of hotels, shops, and families across Karnataka trust Arav Poultry Farms every single day.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best eggs in the region. We've been buying from Arav Poultry Farms for 3 years now. Consistency in quality is unmatched — our restaurant customers love it."</p>
+      <div class="review-author">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Rahul Shegane</div>
+          <div class="review-role">Restaurant Owner, Bengaluru</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Very professional supplier. Large quantity, no shortage, always on time. I recommend Arav Farms to every trader in our market. Trustworthy and affordable."</p>
+      <div class="review-author">
+        <div class="review-avatar">P</div>
+        <div>
+          <div class="review-name">Pratik Pawar</div>
+          <div class="review-role">Wholesale Distributor, Mysuru</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I switched to Arav Poultry Farms 6 months ago. The eggs are visibly fresher, the yolks are richer, and the price is fair. My family won't go back to market eggs!"</p>
+      <div class="review-author">
+        <div class="review-avatar">G</div>
+        <div>
+          <div class="review-name">Preeti Gajanan</div>
+          <div class="review-role">Regular Customer, Hubli</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Ordered 5,000 eggs for our hotel chain event. Delivered on time, perfectly packed, zero breakage. Outstanding service — will definitely order again!"</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Suresh Nair</div>
+          <div class="review-role">Hotel Manager, Mangaluru</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The farm visit was eye-opening. Absolutely clean, well-managed, and the birds are healthy. You can taste the difference when eggs come from a good farm."</p>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Anita Kulkarni</div>
+          <div class="review-role">Bakery Owner, Dharwad</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Quick response on WhatsApp, easy ordering, same-day delivery. Arav Farms feels like a modern business with traditional values. Highly recommended."</p>
+      <div class="review-author">
+        <div class="review-avatar">V</div>
+        <div>
+          <div class="review-name">Vijay Reddy</div>
+          <div class="review-role">Supermarket Owner, Belagavi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="contact" class="cta-section">
+  <div class="reveal">
+    <div class="section-tag" style="background:rgba(245,197,66,.15);color:var(--gold);">Get In Touch</div>
+    <h2>Ready to Order <span>Farm Fresh</span> Eggs?</h2>
+    <p>Contact us today for pricing, bulk orders, or to schedule a farm visit. We respond within minutes!</p>
+    <div class="cta-btns">
+      <a class="btn-whatsapp" href="https://wa.me/917338242455?text=Hi%20Arav%20Poultry%20Farms%2C%20I%20want%20to%20place%20an%20order" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size:20px;"></i> Chat on WhatsApp
+      </a>
+      <a class="btn-call" href="tel:+917338242455">
+        <i class="fas fa-phone-alt"></i> +91 73382 42455
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:42px;height:42px;background:var(--gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;">🥚</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;color:white;">Arav Poultry Farms</div>
+      </div>
+      <p>Your trusted source for premium farm-fresh eggs and quality poultry products in Karnataka. Farm direct, freshness guaranteed.</p>
+      <div style="display:flex;gap:14px;margin-top:20px;">
+        <a href="#" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;transition:.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--green)'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='white'"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;transition:.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--green)'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='white'"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/917338242455" target="_blank" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;transition:.2s;" onmouseover="this.style.background='#25D366';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='white'"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#why-us">Why Choose Us</a></li>
+        <li><a href="#products">Our Products</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact">
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> +91 73382 42455</div>
+        <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> WhatsApp Order</div>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Karnataka, India</div>
+        <div class="footer-contact-item"><i class="fas fa-clock"></i> Mon–Sat: 6AM – 7PM</div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i> info@aravpoultry.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Arav Poultry Farms. All rights reserved.</div>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-    let p_price = 0, p_name = "", p_unit = "";
+  /* ─── NAV SCROLL EFFECT ─── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
 
-    function openOrder(name, price, unit) {
-        p_name = name; p_price = price; p_unit = unit;
-        document.getElementById('sel-item').innerText = name;
-        document.getElementById('sel-rate').innerText = price;
-        document.getElementById('sel-unit').innerText = unit;
-        recalc();
-        document.getElementById('main').style.display = 'none';
-        document.getElementById('checkout').style.display = 'block';
-        window.scrollTo(0,0);
-    }
+  /* ─── SCROLL REVEAL ─── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    function closeOrder() {
-        document.getElementById('main').style.display = 'block';
-        document.getElementById('checkout').style.display = 'none';
-    }
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    function recalc() {
-        const q = document.getElementById('order-qty').value || 1;
-        const total = q * p_price;
-        document.getElementById('order-total').innerText = total;
-        document.getElementById('upi-btn-val').innerText = total;
-    }
+  /* ─── NUMBER COUNTER ─── */
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = +el.getAttribute('data-target');
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = target >= 1000
+            ? (current >= 1000 ? Math.floor(current/1000) + 'K+' : Math.floor(current))
+            : Math.floor(current) + (target === 100 ? '%' : (target <= 10 ? '+' : '+'));
+          if (current >= target) clearInterval(timer);
+        }, 16);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
 
-    function validate() {
-        const n = document.getElementById('user-name').value;
-        const a = document.getElementById('user-addr').value;
-        if(!n || !a) {
-            alert("Please provide both Name and Delivery Address.");
-            return false;
-        }
-        return { name: n, addr: a };
-    }
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-    function handleUPI() {
-        const user = validate();
-        if(!user) return;
-        const total = document.getElementById('order-total').innerText;
-        const url = `upi://pay?pa=7338242455@ybl&pn=Arav%20Poultry&am=${total}&tn=Order%20by%20${encodeURIComponent(user.name)}&cu=INR`;
-        window.location.href = url;
+  /* ─── HAMBURGER MENU ─── */
+  function toggleMenu(el) {
+    el.classList.toggle('open');
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = `
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 72px; left: 0; right: 0;
+        background: rgba(11,61,46,.98); padding: 20px 6%;
+      `;
+      links.querySelectorAll('a').forEach(a => {
+        a.style.cssText = 'padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 16px;';
+        a.onclick = () => {
+          links.style.display = 'none';
+          el.classList.remove('open');
+        };
+      });
     }
-
-    function handleWA() {
-        const user = validate();
-        if(!user) return;
-        const q = document.getElementById('order-qty').value;
-        const t = document.getElementById('order-total').innerText;
-        const msg = `*NEW ORDER - ARAV POULTRY*%0A*Item:* ${p_name}%0A*Qty:* ${q} ${p_unit}%0A*Total:* ₹${t}%0A------------------%0A*Name:* ${user.name}%0A*Address:* ${user.addr}`;
-        window.open(`https://wa.me/917338242455?text=${msg}`, '_blank');
-    }
+  }
 </script>
 </body>
 </html>
